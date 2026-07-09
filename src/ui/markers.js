@@ -3,16 +3,36 @@ import L from "leaflet";
 let markerGroup = null;
 
 function getPokemonTheme(categories) {
+    // Sjekker om det er en restaurant eller kafé -> Charmander (Ild)
     if (categories.includes("catering.restaurant") || categories.includes("catering.cafe")) {
-        return { type: "Fire/Normal", icon: "https://githubusercontent.com", placeType: "Pokémon Café" }; 
+        return { 
+            type: "Fire/Normal", 
+            icon: "https://githubusercontent.com", 
+            placeType: "Pokémon Café" 
+        }; 
     }
+    // Sjekker om det er en park eller natur -> Bulbasaur (Gress)
     if (categories.includes("leisure.park") || categories.includes("natural")) {
-        return { type: "Grass", icon: "https://githubusercontent.com", placeType: "Wild Area" }; 
+        return { 
+            type: "Grass", 
+            icon: "https://githubusercontent.com", 
+            placeType: "Wild Area" 
+        }; 
     }
+    // Sjekker om det er et hotell eller overnatting -> Jigglypuff (Healing)
     if (categories.includes("tourism.hotel") || categories.includes("accommodation")) {
-        return { type: "Healing", icon: "https://githubusercontent.com", placeType: "Pokémon Center" }; 
+        return { 
+            type: "Healing", 
+            icon: "https://githubusercontent.com", 
+            placeType: "Pokémon Center" 
+        }; 
     }
-    return { type: "Normal", icon: "https://githubusercontent.com", placeType: "PokéStop" }; 
+    // Standard for alt annet -> Pikachu (Elektrisk/Normal)
+    return { 
+        type: "Normal", 
+        icon: "https://githubusercontent.com", 
+        placeType: "PokéStop" 
+    }; 
 }
 
 export function createMarker(map, places) {
@@ -34,8 +54,8 @@ export function createMarker(map, places) {
 
         const pokemonIcon = L.icon({
             iconUrl: theme.icon,
-            iconSize: [40, 40],
-            iconAnchor: [20, 40],
+            iconSize: [50, 50],
+            iconAnchor: [25, 50],
             popupAnchor: [0, -40]
         });
 
@@ -53,4 +73,5 @@ export function createMarker(map, places) {
          .bindPopup(popupContent);
     });
 }
+
 
