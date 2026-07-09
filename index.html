@@ -6,8 +6,27 @@
   </head>
 
   <body>
+    <!-- Kontrollpanel for søk og filtre -->
+    <div class="controls">
+      <!-- Søkefelt -->
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Søk etter en by eller sted...">
+        <button id="search-btn">Søk</button>
+      </div>
+
+      <!-- Filterknapper -->
+      <div class="filter-container">
+        <button class="filter-btn" data-category="amenity">Vis Alle</button>
+        <button class="filter-btn" data-category="catering.restaurant,catering.cafe">Pokémon Cafés</button>
+        <button class="filter-btn" data-category="leisure.park">Wild Areas</button>
+        <button class="filter-btn" data-category="tourism.hotel">Pokémon Centers</button>
+      </div>
+    </div>
+
+    <!-- Kartet -->
     <div id="map"></div>
 
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
+
