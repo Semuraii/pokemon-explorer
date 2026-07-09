@@ -2,28 +2,58 @@ import "./style.css";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
-import { getPlaces } from "./api/geoapify.js";
+import { getPlaces, searchLocation } from "./api/geoapify.js";
 import { createMarker } from "./ui/markers.js";
-
-console.log("JS kjører");
-console.log(import.meta.env.VITE_GEOAPIFY_KEY);
 
 const map = L.map("map").setView([59.91, 10.75], 13);
 
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+L.tileLayer("https://openstreetmap.org{z}/{x}/{y}.png", {
   maxZoom: 19,
 }).addTo(map);
 
+let currentCategory = "amenity"; 
+
 async function loadPlaces() {
-  const data = await getPlaces(
-    59.9139,
-    10.7522
-  );
-
-  console.log(data);
-
+  const center = map.getCenter();
+  const data = await getPlaces(center.lat, center.lng, currentCategory);
   createMarker(map, data);
 }
 
+// Henter nye steder automatisk når du drar kartet rundt!
+map.on("moveend", () => {
+  loadPlaces();
+});
+
+// Søkefunksjon
+const searchInput = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-btn");
+
+if (searchBtn && searchInput) {
+  searchBtn.addEventListener("click", async () => {
+    const query = searchInput.value;
+    if (!query) return;
+
+    const searchData = await searchLocation(query);
+    
+    if (searchData.features && searchData.features.length > 0) {
+      const firstResult = searchData.features[0].geometry.coordinates;
+      // Merk: Geoapify returnerer [lon, lat], men Leaflet bruker [lat, lon]
+      map.setView([firstResult[1], firstResult[0]], 13);
+    } else {
+      alert("Fant ingen lokasjoner for: " + query);
+    }
+  });
+}
+
+// Filterfunksjon
+const filterButtons = document.querySelectorAll(".filter-btn");
+filterButtons.forEach(button => {
+  button.addEventListener("click", (e) => {
+    currentCategory = e.target.getAttribute("data-category") || "amenity";
+    loadPlaces();
+  });
+});
+
 loadPlaces();
+
 
