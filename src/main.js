@@ -1,6 +1,7 @@
 import "leaflet/dist/leaflet.css";
 import "./style.css";
 import L from "leaflet";
+import { getPokemon } from "./api/pokemon.js";
 
 import { getPlaces, searchLocation } from "./api/geoapify.js";
 import { createMarker } from "./ui/markers.js";
@@ -56,6 +57,8 @@ if (searchBtn && searchInput) {
   });
 }
 
+const filterButtons = document.querySelectorAll(".filter-btn");
+
 // Filterfunksjon
 filterButtons.forEach(button => {
 
@@ -71,3 +74,16 @@ filterButtons.forEach(button => {
 });
 
 });
+
+loadPlaces();
+
+async function testPokemon() {
+    try {
+        const pokemon = await getPokemon("pikachu");
+        console.log("Pikachu:", pokemon);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+testPokemon();
