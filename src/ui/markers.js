@@ -1,4 +1,6 @@
 import L from "leaflet";
+import { pokemonMap } from "../data/pokemonMap.js";
+import { getPokemon } from "../api/pokemon.js";
 
 let markerGroup = null;
 
@@ -35,7 +37,7 @@ function getPokemonTheme(categories) {
     }; 
 }
 
-export function createMarker(map, places) {
+export async function createMarker(map, places) {
     if (!markerGroup) {
         markerGroup = L.layerGroup().addTo(map);
     }
@@ -44,7 +46,7 @@ export function createMarker(map, places) {
 
     if (!places || !places.features) return;
 
-    places.features.forEach(place => {
+    for (const place of places.features) {
         const lat = place.properties.lat;
         const lon = place.properties.lon;
         const name = place.properties.name || "Ukjent lokasjon";
@@ -63,7 +65,7 @@ export function createMarker(map, places) {
         L.marker([lat, lon])
          .addTo(markerGroup)
          .bindPopup(popupContent);
-    });
+    };
 }
 
 
