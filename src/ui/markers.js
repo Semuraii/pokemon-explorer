@@ -49,22 +49,62 @@ export async function createMarker(map, places) {
     for (const place of places.features) {
         const lat = place.properties.lat;
         const lon = place.properties.lon;
-        const name = place.properties.name || "Ukjent lokasjon";
-        const categories = place.properties.categories || [];
 
-        const theme = getPokemonTheme(categories);
+        console.log(JSON.stringify(place.properties, null, 2));
 
-        const popupContent = `
-            <div style="text-align: center;">
-                <h3>${name}</h3>
-                <p><b>Type:</b> ${theme.placeType}</p>
-                <p><b>Element:</b> ${theme.type}</p>
-            </div>
-        `;
+        const name =
+    place.properties.name ||
+    place.properties.address_line1 ||
+    place.properties.formatted ||
+    "Ukjent lokasjon";
+      const categories = place.properties.categories || [];
 
-        L.marker([lat, lon])
-         .addTo(markerGroup)
-         .bindPopup(popupContent);
+      console.log(categories);
+      
+
+// Standard Pokémon
+let pokemonName = "pikachu";
+
+// Finn første kategori som finnes i pokemonMap
+for (const category of categories) {
+    if (pokemonMap[category]) {
+        pokemonName = pokemonMap[category];
+        break;
+    }
+}
+
+// Hent Pokémon fra PokeAPI
+const pokemon = await getPokemon(pokemonName);
+
+      const popupContent = `
+<div style="text-align:center">
+
+<h3>${name}</h3>
+
+<h4>${pokemon.name.toUpperCase()}</h4>
+
+<img src="${pokemon.sprites.front_default}" width="80">
+
+<p>
+Type:
+${pokemon.types.map(type => type.type.name).join(", ")}
+</p>
+
+</div>
+`;
+
+     const pokemonIcon = L.icon({
+    iconUrl: pokemon.sprites.front_default,
+    iconSize: [60, 60],
+    iconAnchor: [30, 60],
+    popupAnchor: [0, -50]
+});
+
+L.marker([lat, lon], {
+    icon: pokemonIcon
+})
+    .addTo(markerGroup)
+    .bindPopup(popupContent);
     };
 }
 
