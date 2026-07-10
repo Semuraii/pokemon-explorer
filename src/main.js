@@ -1,5 +1,5 @@
-import "./style.css";
 import "leaflet/dist/leaflet.css";
+import "./style.css";
 import L from "leaflet";
 
 import { getPlaces, searchLocation } from "./api/geoapify.js";
@@ -7,8 +7,10 @@ import { createMarker } from "./ui/markers.js";
 
 const map = L.map("map").setView([59.91, 10.75], 13);
 
-L.tileLayer("https://openstreetmap.org{z}/{x}/{y}.png", {
+// RETTET URL: Lagt til "tile." og "/" før klammeparentesene
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
+  attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
 let currentCategory = "amenity"; 
@@ -36,9 +38,9 @@ if (searchBtn && searchInput) {
     const searchData = await searchLocation(query);
     
     if (searchData.features && searchData.features.length > 0) {
-      const firstResult = searchData.features[0].geometry.coordinates;
+      const coordinates = searchData.features[0].geometry.coordinates;
       // Merk: Geoapify returnerer [lon, lat], men Leaflet bruker [lat, lon]
-      map.setView([firstResult[1], firstResult[0]], 13);
+      map.setView([coordinates[1], coordinates[0]], 13);
     } else {
       alert("Fant ingen lokasjoner for: " + query);
     }
@@ -55,5 +57,3 @@ filterButtons.forEach(button => {
 });
 
 loadPlaces();
-
-
