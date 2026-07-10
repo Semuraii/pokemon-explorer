@@ -2,6 +2,6 @@ export const pokemonMap = {
     "catering.restaurant": "charmander",
     "catering.cafe": "eevee",
     "leisure.park": "bulbasaur",
-    "tourism.hotel": "chansey",
+    "accommodation.hotel": "chansey",
     "commercial.supermarket": "pikachu"
 };
