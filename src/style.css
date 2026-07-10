@@ -1,4 +1,19 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 #map {
-  height: 100vh;
+  height: 80px; /* Tvinger kartet til å ta opp nesten hele skjermen */
   width: 100%;
 }
+
+.controls {
+  padding: 10px;
+  background: #f8f9fa;
+  display: flex;
+  gap: 10px;
+}
+
+
