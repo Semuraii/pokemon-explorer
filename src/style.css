@@ -16,4 +16,24 @@ html, body {
   gap: 10px;
 }
 
+.filter-btn {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #eeeeee;
+    transition: 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: #d9d9d9;
+}
+
+.filter-btn.active {
+    background-color: #ffcb05;
+    color: #2a75bb;
+    font-weight: bold;
+}
+
 

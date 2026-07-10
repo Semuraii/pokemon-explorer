@@ -52,23 +52,15 @@ export function createMarker(map, places) {
 
         const theme = getPokemonTheme(categories);
 
-        const pokemonIcon = L.icon({
-            iconUrl: theme.icon,
-            iconSize: [50, 50],
-            iconAnchor: [25, 50],
-            popupAnchor: [0, -40]
-        });
-
         const popupContent = `
             <div style="text-align: center;">
                 <h3>${name}</h3>
                 <p><b>Type:</b> ${theme.placeType}</p>
                 <p><b>Element:</b> ${theme.type}</p>
-                <img src="${theme.icon}" width="50" />
             </div>
         `;
 
-        L.marker([lat, lon], { icon: pokemonIcon })
+        L.marker([lat, lon])
          .addTo(markerGroup)
          .bindPopup(popupContent);
     });

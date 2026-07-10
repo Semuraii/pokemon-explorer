@@ -13,11 +13,20 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-let currentCategory = "amenity"; 
+let currentCategory = "amenity";
+document
+    .querySelector('[data-category="amenity"]')
+    ?.classList.add("active"); 
 
 async function loadPlaces() {
+
+console.log("Laster steder...");
+
   const center = map.getCenter();
   const data = await getPlaces(center.lat, center.lng, currentCategory);
+
+console.log(data);
+
   createMarker(map, data);
 }
 
@@ -48,12 +57,17 @@ if (searchBtn && searchInput) {
 }
 
 // Filterfunksjon
-const filterButtons = document.querySelectorAll(".filter-btn");
 filterButtons.forEach(button => {
-  button.addEventListener("click", (e) => {
-    currentCategory = e.target.getAttribute("data-category") || "amenity";
-    loadPlaces();
-  });
+
+    button.addEventListener("click", async () => {
+
+    filterButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    currentCategory = button.dataset.category;
+
+    await loadPlaces();
+
 });
 
-loadPlaces();
+});
