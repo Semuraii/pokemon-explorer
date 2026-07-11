@@ -34,15 +34,21 @@ console.log(data);
 
 let moveTimeout;
 
-map.on("moveend", () => {
+let popupOpen = false;
 
-    clearTimeout(moveTimeout);
+map.on("popupopen", () => {
+    popupOpen = true;
+});
 
-    moveTimeout = setTimeout(() => {
+map.on("popupclose", () => {
+    popupOpen = false;
+});
 
-        loadPlaces();
+map.on("moveend", async () => {
 
-    }, 300);
+    if (popupOpen) return;
+
+    await loadPlaces();
 
 });
 

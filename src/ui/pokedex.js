@@ -1,3 +1,7 @@
+let common = 0;
+let rare = 0;
+let legendary = 0;
+
 const caughtPokemon = new Set();
 
 export function addPokemonToPokedex(pokemon) {
