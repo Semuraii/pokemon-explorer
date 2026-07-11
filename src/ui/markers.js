@@ -1,6 +1,7 @@
 import L from "leaflet";
 import { pokemonMap } from "../data/pokemonMap.js";
 import { getPokemon } from "../api/pokemon.js";
+import { addPokemonToPokedex } from "./pokedex.js";
 
 let markerGroup = null;
 let caughtPokemon = 0;
