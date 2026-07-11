@@ -47,6 +47,7 @@ const pokemonName = pokemonList[hash % pokemonList.length];
 
 // Hent Pokémon fra PokeAPI
 const pokemon = await getPokemon(pokemonName);
+const rarity = pokemonRarity[pokemonName] || "Common";
 
 const popupContent = `
 <div style="text-align:center; min-width:180px;">
@@ -62,6 +63,7 @@ const popupContent = `
 
 <p><strong>Type:</strong></p>
 <p>${pokemon.types.map(type => type.type.name).join(", ")}</p>
+<p><strong>Rarity:</strong> ${rarity}</p>
 
 </div>
 `;
