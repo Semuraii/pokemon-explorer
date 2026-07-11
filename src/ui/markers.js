@@ -4,39 +4,6 @@ import { getPokemon } from "../api/pokemon.js";
 
 let markerGroup = null;
 
-function getPokemonTheme(categories) {
-    // Sjekker om det er en restaurant eller kafé -> Charmander (Ild)
-    if (categories.includes("catering.restaurant") || categories.includes("catering.cafe")) {
-        return { 
-            type: "Fire/Normal", 
-            icon: "https://githubusercontent.com", 
-            placeType: "Pokémon Café" 
-        }; 
-    }
-    // Sjekker om det er en park eller natur -> Bulbasaur (Gress)
-    if (categories.includes("leisure.park") || categories.includes("natural")) {
-        return { 
-            type: "Grass", 
-            icon: "https://githubusercontent.com", 
-            placeType: "Wild Area" 
-        }; 
-    }
-    // Sjekker om det er et hotell eller overnatting -> Jigglypuff (Healing)
-    if (categories.includes("tourism.hotel") || categories.includes("accommodation")) {
-        return { 
-            type: "Healing", 
-            icon: "https://githubusercontent.com", 
-            placeType: "Pokémon Center" 
-        }; 
-    }
-    // Standard for alt annet -> Pikachu (Elektrisk/Normal)
-    return { 
-        type: "Normal", 
-        icon: "https://githubusercontent.com", 
-        placeType: "PokéStop" 
-    }; 
-}
-
 export async function createMarker(map, places) {
     if (!markerGroup) {
         markerGroup = L.layerGroup().addTo(map);
@@ -60,13 +27,16 @@ export async function createMarker(map, places) {
       const categories = place.properties.categories || [];
 
       console.log(categories);
-      
+
 
 // Standard Pokémon
 let pokemonName = "pikachu";
 
 // Finn første kategori som finnes i pokemonMap
 for (const category of categories) {
+
+    console.log("Kategori:", category);
+
     if (pokemonMap[category]) {
         pokemonName = pokemonMap[category];
         break;
