@@ -46,19 +46,20 @@ for (const category of categories) {
 // Hent Pokémon fra PokeAPI
 const pokemon = await getPokemon(pokemonName);
 
-      const popupContent = `
-<div style="text-align:center">
+const popupContent = `
+<div style="text-align:center; min-width:180px;">
 
-<h3>${name}</h3>
+<h2>🎉 Pokémon Found!</h2>
 
-<h4>${pokemon.name.toUpperCase()}</h4>
+<img src="${pokemon.sprites.front_default}" width="100">
 
-<img src="${pokemon.sprites.front_default}" width="80">
+<h3>${pokemon.name.toUpperCase()}</h3>
 
-<p>
-Type:
-${pokemon.types.map(type => type.type.name).join(", ")}
-</p>
+<p><strong>Location:</strong></p>
+<p>${name}</p>
+
+<p><strong>Type:</strong></p>
+<p>${pokemon.types.map(type => type.type.name).join(", ")}</p>
 
 </div>
 `;
