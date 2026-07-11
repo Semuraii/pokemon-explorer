@@ -4,36 +4,113 @@ html, body {
   height: 100%;
 }
 
-#map {
-  height: 80px; /* Tvinger kartet til å ta opp nesten hele skjermen */
+ #map {
+  height: calc(100vh - 180px);
   width: 100%;
 }
 
 .controls {
-  padding: 10px;
-  background: #f8f9fa;
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 15px;
+
+  padding: 20px;
+
+  background: white;
+
+  border-bottom: 4px solid #2a75bb;
 }
 
 .filter-btn {
-    padding: 10px;
-    margin: 5px;
+    padding: 12px 18px;
+
     border: none;
-    border-radius: 8px;
+
+    border-radius: 10px;
+
     cursor: pointer;
-    background-color: #eeeeee;
+
+    background: #ffcb05;
+
+    color: #2a75bb;
+
+    font-weight: bold;
+
     transition: 0.2s;
 }
 
 .filter-btn:hover {
-    background-color: #d9d9d9;
+    background: #f4b400;
 }
 
 .filter-btn.active {
-    background-color: #ffcb05;
+    background: #2a75bb;
+    color: white;
+}
+
+.header {
+
+    background: #ffcb05;
+
     color: #2a75bb;
-    font-weight: bold;
+
+    text-align: center;
+
+    padding: 20px;
+
+    border-bottom: 6px solid #2a75bb;
+
+}
+
+.header h1 {
+
+    margin: 0;
+
+    font-size: 40px;
+
+}
+
+.header p {
+
+    margin-top: 10px;
+
+    font-size: 18px;
+
+}
+
+.search-container input {
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    border: 2px solid #2a75bb;
+
+}
+
+.search-container button {
+
+    padding: 10px 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #2a75bb;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+.search-container button:hover {
+
+    background: #1c4f82;
+
 }
 
 
