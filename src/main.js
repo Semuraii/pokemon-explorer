@@ -32,9 +32,18 @@ console.log(data);
   createMarker(map, data);
 }
 
-// Henter nye steder automatisk når du drar kartet rundt!
+let moveTimeout;
+
 map.on("moveend", () => {
-  loadPlaces();
+
+    clearTimeout(moveTimeout);
+
+    moveTimeout = setTimeout(() => {
+
+        loadPlaces();
+
+    }, 300);
+
 });
 
 // Søkefunksjon
