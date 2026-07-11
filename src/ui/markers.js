@@ -81,10 +81,12 @@ const marker = L.marker([lat, lon], {
 
 marker.on("click", () => {
 
-    caughtPokemon++;
+  caughtPokemon++;
 
-    document.getElementById("caught-counter").textContent =
-        `Caught Pokémon: ${caughtPokemon}`;
+document.getElementById("caught-counter").textContent =
+    `Caught Pokémon: ${caughtPokemon}`;
+
+addPokemonToPokedex(pokemon);
 
 });
     }
