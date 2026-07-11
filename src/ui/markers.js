@@ -67,10 +67,6 @@ const popupContent = `
 <p><strong>Rarity:</strong></p>
 <p class="popup-rarity">${rarity}</p>
 
-<button class="catch-btn">
-    Catch Pokémon
-</button>
-
 </div>
 `;
 
@@ -89,24 +85,42 @@ const marker = L.marker([lat, lon], {
 
 marker.on("popupopen", () => {
 
-    const button = document.querySelector(".catch-btn");
+    // Prevent catching the same Pokémon twice
+    if (marker.caught) return;
 
-    if (!button) return;
+    marker.caught = true;
 
-    button.onclick = () => {
+    caughtPokemon++;
 
-        caughtPokemon++;
+    document.getElementById("caught-counter").textContent =
+        `Caught Pokémon: ${caughtPokemon}`;
 
-        document.getElementById("caught-counter").textContent =
-            `Caught Pokémon: ${caughtPokemon}`;
+    addPokemonToPokedex(pokemon);
 
-        addPokemonToPokedex(pokemon);
+    marker.setPopupContent(`
+<div style="text-align:center; min-width:180px;">
 
-        alert(`🎉 You caught ${pokemon.name}!`);
+    <h2>✅ Pokémon Caught!</h2>
 
-    };
+    <img src="${pokemon.sprites.front_default}" width="100">
 
-});
-    }
+    <h3>${pokemon.name.toUpperCase()}</h3>
 
+    <p><strong>Location:</strong></p>
+    <p>${name}</p>
+
+    <p><strong>Type:</strong></p>
+    <p>${pokemon.types.map(type => type.type.name).join(", ")}</p>
+
+    <p><strong>Rarity:</strong></p>
+    <p>${rarity}</p>
+
+    <p style="color:green;font-weight:bold;">
+        Added to your Pokédex!
+    </p>
+
+</div>
+`);
+    });
+}
 }
