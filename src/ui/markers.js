@@ -62,10 +62,6 @@ const popupContent = `
 <p><strong>Type:</strong></p>
 <p>${pokemon.types.map(type => type.type.name).join(", ")}</p>
 
-<button class="catch-btn">
-    Catch Pokémon
-</button>
-
 </div>
 `;
 
