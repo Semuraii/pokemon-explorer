@@ -3,6 +3,7 @@ import { pokemonMap } from "../data/pokemonMap.js";
 import { getPokemon } from "../api/pokemon.js";
 
 let markerGroup = null;
+let caughtPokemon = 0;
 
 export async function createMarker(map, places) {
     if (!markerGroup) {
@@ -61,6 +62,10 @@ const popupContent = `
 <p><strong>Type:</strong></p>
 <p>${pokemon.types.map(type => type.type.name).join(", ")}</p>
 
+<button class="catch-btn">
+    Catch Pokémon
+</button>
+
 </div>
 `;
 
@@ -71,12 +76,30 @@ const popupContent = `
     popupAnchor: [0, -50]
 });
 
-L.marker([lat, lon], {
+const marker = L.marker([lat, lon], {
     icon: pokemonIcon
 })
-    .addTo(markerGroup)
-    .bindPopup(popupContent);
+.addTo(markerGroup)
+.bindPopup(popupContent);
+
+marker.on("popupopen", () => {
+
+    const button = document.querySelector(".catch-btn");
+
+    if (!button) return;
+
+    button.onclick = () => {
+
+        caughtPokemon++;
+
+        document.getElementById("caught-counter").textContent =
+            `Caught Pokémon: ${caughtPokemon}`;
+
+        alert(`🎉 You caught ${pokemon.name}!`);
+
     };
+
+});
+    }
+
 }
-
-
