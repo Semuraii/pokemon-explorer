@@ -14,10 +14,11 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-let currentCategory = "amenity";
+let currentCategory = "catering.restaurant";
+
 document
-    .querySelector('[data-category="amenity"]')
-    ?.classList.add("active"); 
+    .querySelector('[data-category="catering.restaurant"]')
+    ?.classList.add("active");
 
 async function loadPlaces() {
 
@@ -77,13 +78,3 @@ filterButtons.forEach(button => {
 
 loadPlaces();
 
-async function testPokemon() {
-    try {
-        const pokemon = await getPokemon("pikachu");
-        console.log("Pikachu:", pokemon);
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-testPokemon();
