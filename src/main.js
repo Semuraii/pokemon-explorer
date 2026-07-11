@@ -34,19 +34,7 @@ console.log(data);
 
 let moveTimeout;
 
-let popupOpen = false;
-
-map.on("popupopen", () => {
-    popupOpen = true;
-});
-
-map.on("popupclose", () => {
-    popupOpen = false;
-});
-
-map.on("moveend", async () => {
-
-    if (popupOpen) return;
+map.on("dragend", async () => {
 
     await loadPlaces();
 

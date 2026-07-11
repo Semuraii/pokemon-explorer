@@ -63,7 +63,13 @@ const popupContent = `
 
 <p><strong>Type:</strong></p>
 <p>${pokemon.types.map(type => type.type.name).join(", ")}</p>
-<p><strong>Rarity:</strong> <span class="popup-rarity">${rarity}</span></p>
+
+<p><strong>Rarity:</strong></p>
+<p class="popup-rarity">${rarity}</p>
+
+<button class="catch-btn">
+    Catch Pokémon
+</button>
 
 </div>
 `;
@@ -81,14 +87,24 @@ const marker = L.marker([lat, lon], {
 .addTo(markerGroup)
 .bindPopup(popupContent);
 
-marker.on("click", () => {
+marker.on("popupopen", () => {
 
-  caughtPokemon++;
+    const button = document.querySelector(".catch-btn");
 
-document.getElementById("caught-counter").textContent =
-    `Caught Pokémon: ${caughtPokemon}`;
+    if (!button) return;
 
-addPokemonToPokedex(pokemon);
+    button.onclick = () => {
+
+        caughtPokemon++;
+
+        document.getElementById("caught-counter").textContent =
+            `Caught Pokémon: ${caughtPokemon}`;
+
+        addPokemonToPokedex(pokemon);
+
+        alert(`🎉 You caught ${pokemon.name}!`);
+
+    };
 
 });
     }
