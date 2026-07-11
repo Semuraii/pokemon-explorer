@@ -82,22 +82,12 @@ const marker = L.marker([lat, lon], {
 .addTo(markerGroup)
 .bindPopup(popupContent);
 
-marker.on("popupopen", () => {
+marker.on("click", () => {
 
-    const button = document.querySelector(".catch-btn");
+    caughtPokemon++;
 
-    if (!button) return;
-
-    button.onclick = () => {
-
-        caughtPokemon++;
-
-        document.getElementById("caught-counter").textContent =
-            `Caught Pokémon: ${caughtPokemon}`;
-
-        alert(`🎉 You caught ${pokemon.name}!`);
-
-    };
+    document.getElementById("caught-counter").textContent =
+        `Caught Pokémon: ${caughtPokemon}`;
 
 });
     }
