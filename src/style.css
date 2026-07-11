@@ -119,4 +119,36 @@ html, body {
     margin-top: 10px;
 }
 
+.content{
+    display:flex;
+    height:calc(100vh - 180px);
+}
+
+#map{
+    flex:3;
+}
+
+.pokedex{
+    flex:1;
+
+    background:white;
+
+    border-left:5px solid #2a75bb;
+
+    padding:20px;
+
+    overflow-y:auto;
+}
+
+.pokedex h2{
+    margin-top:0;
+    color:#2a75bb;
+}
+
+#pokemon-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
 
