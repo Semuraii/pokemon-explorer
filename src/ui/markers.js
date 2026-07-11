@@ -31,9 +31,18 @@ export async function createMarker(map, places) {
       console.log(categories);
 
 
-const randomIndex = Math.floor(Math.random() * pokemonList.length);
+// Create a unique number based on the coordinates
+const locationKey = `${lat}${lon}`;
 
-const pokemonName = pokemonList[randomIndex];
+// Convert the string into a number
+let hash = 0;
+
+for (let i = 0; i < locationKey.length; i++) {
+    hash += locationKey.charCodeAt(i);
+}
+
+// Always pick the same Pokémon for this location
+const pokemonName = pokemonList[hash % pokemonList.length];
 
 // Hent Pokémon fra PokeAPI
 const pokemon = await getPokemon(pokemonName);
