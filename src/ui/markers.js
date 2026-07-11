@@ -1,5 +1,5 @@
 import L from "leaflet";
-import { pokemonMap } from "../data/pokemonMap.js";
+import { pokemonList } from "../data/pokemonList.js";
 import { getPokemon } from "../api/pokemon.js";
 import { addPokemonToPokedex } from "./pokedex.js";
 
@@ -31,19 +31,9 @@ export async function createMarker(map, places) {
       console.log(categories);
 
 
-// Standard Pokémon
-let pokemonName = "pikachu";
+const randomIndex = Math.floor(Math.random() * pokemonList.length);
 
-// Finn første kategori som finnes i pokemonMap
-for (const category of categories) {
-
-    console.log("Kategori:", category);
-
-    if (pokemonMap[category]) {
-        pokemonName = pokemonMap[category];
-        break;
-    }
-}
+const pokemonName = pokemonList[randomIndex];
 
 // Hent Pokémon fra PokeAPI
 const pokemon = await getPokemon(pokemonName);
