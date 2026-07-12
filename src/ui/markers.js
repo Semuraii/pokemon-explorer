@@ -119,9 +119,6 @@ marker.on("popupopen", () => {
     <p><strong>Type:</strong></p>
     <p>${pokemon.types.map(type => type.type.name).join(", ")}</p>
 
-    <p><strong>Rarity:</strong></p>
-    <p>${rarity}</p>
-
     <p style="color:green;font-weight:bold;">
         Added to your Pokédex!
     </p>
