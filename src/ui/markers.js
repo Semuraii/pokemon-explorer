@@ -54,7 +54,13 @@ const popupContent = `
 
 <h2>🎉 Pokémon Found!</h2>
 
-<img src="${pokemon.sprites.front_default}" width="100">
+<img
+    src="${
+        pokemon.sprites.other["official-artwork"].front_default ||
+        pokemon.sprites.front_default
+    }"
+    width="140"
+>
 
 <h3>${pokemon.name.toUpperCase()}</h3>
 
@@ -102,7 +108,13 @@ marker.on("popupopen", () => {
 
     <h2>✅ Pokémon Caught!</h2>
 
-    <img src="${pokemon.sprites.front_default}" width="100">
+    <img
+    src="${
+        pokemon.sprites.other["official-artwork"].front_default ||
+        pokemon.sprites.front_default
+    }"
+    width="140"
+>
 
     <h3>${pokemon.name.toUpperCase()}</h3>
 
