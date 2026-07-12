@@ -40,6 +40,8 @@ export function addPokemonToPokedex(pokemon) {
         </div>
     `;
 
-    pokemonList.appendChild(card);
+    pokemonList.innerHTML = "";
+
+pokemonList.appendChild(card);
 
 }
