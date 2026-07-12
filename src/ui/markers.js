@@ -55,7 +55,7 @@ const popupContent = `
         pokemon.sprites.other["official-artwork"].front_default ||
         pokemon.sprites.front_default
     }"
-    width="140"
+    width="110"
 >
 
 <h3>${pokemon.name.toUpperCase()}</h3>
@@ -104,7 +104,7 @@ marker.on("popupopen", () => {
         pokemon.sprites.other["official-artwork"].front_default ||
         pokemon.sprites.front_default
     }"
-    width="140"
+    width="110"
 >
 
     <h3>${pokemon.name.toUpperCase()}</h3>
