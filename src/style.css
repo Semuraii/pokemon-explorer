@@ -24,6 +24,23 @@ html, body {
   border-bottom: 4px solid #2a75bb;
 }
 
+.search-container {
+
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+}
+
+.filter-container {
+
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
 .filter-btn {
     padding: 12px 18px;
 
