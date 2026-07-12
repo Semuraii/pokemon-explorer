@@ -238,4 +238,27 @@ html, body {
 
 }
 
+@media (max-width: 900px) {
+
+    .content {
+
+        flex-direction: column;
+
+    }
+
+    #map {
+
+        height: 60vh;
+
+    }
+
+    .pokedex {
+
+        border-left: none;
+        border-top: 5px solid #2a75bb;
+
+    }
+
+}
+
 
