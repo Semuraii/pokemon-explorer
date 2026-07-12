@@ -60,11 +60,15 @@ const popupContent = `
 
 <h3>${pokemon.name.toUpperCase()}</h3>
 
-<p><strong>Location:</strong></p>
-<p>${name}</p>
+<p>
+📍 ${name}
+</p>
 
-<p><strong>Type:</strong></p>
-<p>${pokemon.types.map(type => type.type.name).join(", ")}</p>
+<p>
+⚡ ${pokemon.types
+    .map(type => type.type.name)
+    .join(", ")}
+</p>
 
 </div>
 `;
