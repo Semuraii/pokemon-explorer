@@ -50,8 +50,6 @@ const pokemon = await getPokemon(pokemonName);
 const popupContent = `
 <div style="text-align:center; min-width:180px;">
 
-<h2>🎉 Pokémon Found!</h2>
-
 <img
     src="${
         pokemon.sprites.other["official-artwork"].front_default ||
@@ -100,8 +98,6 @@ marker.on("popupopen", () => {
 
     marker.setPopupContent(`
 <div style="text-align:center; min-width:180px;">
-
-    <h2>✅ Pokémon Caught!</h2>
 
     <img
     src="${
