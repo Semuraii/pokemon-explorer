@@ -330,4 +330,54 @@ html, body {
 
 }
 
+/* ---------- Pokémon Popup ---------- */
 
+.pokemon-popup {
+
+    width: 170px;
+
+    text-align: center;
+
+    padding: 6px;
+
+}
+
+.pokemon-popup img {
+
+    width: 100px;
+
+    display: block;
+
+    margin: 0 auto 10px;
+
+}
+
+.pokemon-popup h3 {
+
+    margin: 8px 0;
+
+    color: #2a75bb;
+
+    font-size: 20px;
+
+}
+
+.pokemon-popup h4 {
+
+    margin: 6px 0;
+
+    color: #2a75bb;
+
+    font-size: 18px;
+
+}
+
+.pokemon-popup p {
+
+    margin: 6px 0;
+
+    color: #555;
+
+    font-size: 14px;
+
+}
