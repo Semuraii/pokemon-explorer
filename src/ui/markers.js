@@ -1,6 +1,5 @@
 import L from "leaflet";
 import { pokemonList } from "../data/pokemonList.js";
-import { pokemonRarity } from "../data/pokemonRarity.js";
 import { getPokemon } from "../api/pokemon.js";
 import { addPokemonToPokedex } from "./pokedex.js";
 
@@ -47,7 +46,6 @@ const pokemonName = pokemonList[hash % pokemonList.length];
 
 // Hent Pokémon fra PokeAPI
 const pokemon = await getPokemon(pokemonName);
-const rarity = pokemonRarity[pokemonName] || "Common";
 
 const popupContent = `
 <div style="text-align:center; min-width:180px;">
