@@ -176,6 +176,18 @@ html, body {
 
 }
 
+.pokedex-title{
+
+    text-align:center;
+
+    font-size:34px;
+
+    color:#2a75bb;
+
+    margin-bottom:20px;
+
+}
+
 .pokedex h2{
     margin-top:0;
     color:#2a75bb;
