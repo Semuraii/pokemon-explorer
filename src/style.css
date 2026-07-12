@@ -151,8 +151,12 @@ html, body {
 }
 
 .pokedex{
-     width: 340px;
-    min-width: 300px;
+
+    flex:1;
+
+    min-width:300px;
+
+    max-width:380px;
 
     background:white;
 
@@ -161,6 +165,7 @@ html, body {
     padding:20px;
 
     overflow-y:auto;
+
 }
 
 .pokedex h2{
