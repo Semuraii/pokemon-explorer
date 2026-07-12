@@ -48,7 +48,7 @@ const pokemonName = pokemonList[hash % pokemonList.length];
 const pokemon = await getPokemon(pokemonName);
 
 const popupContent = `
-<div style="text-align:center; min-width:180px;">
+<div class="pokemon-popup">
 
 <img
     src="${
@@ -101,7 +101,7 @@ marker.on("popupopen", () => {
     addPokemonToPokedex(pokemon);
 
     marker.setPopupContent(`
-<div style="text-align:center; min-width:180px;">
+<div class="pokemon-popup">
 
     <img
     src="${
