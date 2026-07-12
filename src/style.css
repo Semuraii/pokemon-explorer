@@ -31,9 +31,13 @@ html, body {
 
 .search-container {
 
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+    display:flex;
+
+    flex:1;
+
+    gap:10px;
+
+    align-items:center;
 
 }
 
