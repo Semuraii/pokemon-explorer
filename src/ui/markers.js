@@ -68,9 +68,6 @@ const popupContent = `
 <p><strong>Type:</strong></p>
 <p>${pokemon.types.map(type => type.type.name).join(", ")}</p>
 
-<p><strong>Rarity:</strong></p>
-<p class="popup-rarity">${rarity}</p>
-
 </div>
 `;
 
