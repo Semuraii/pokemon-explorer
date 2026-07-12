@@ -13,35 +13,32 @@ export function addPokemonToPokedex(pokemon) {
 
     caughtPokemon.add(pokemon.name);
 
-    const pokemonList = document.getElementById("pokemon-list");
+    const pokemonDisplay = document.getElementById("pokemon-display");
 
-    // Remove "No Pokémon caught yet."
-    if (pokemonList.children.length === 1 &&
-        pokemonList.textContent.includes("No Pokémon")) {
+pokemonDisplay.innerHTML = `
+<div class="pokemon-card">
 
-        pokemonList.innerHTML = "";
-    }
+    <img src="${pokemon.sprites.other["official-artwork"].front_default}">
 
-    const card = document.createElement("div");
+    <h2>${pokemon.name.toUpperCase()}</h2>
 
-    card.className = "pokemon-card";
+    <p>#${pokemon.id}</p>
 
-    card.innerHTML = `
-        <img src="${pokemon.sprites.front_default}" width="60">
+    <p>
 
-        <div>
+        ${pokemon.types
+            .map(type => type.type.name)
+            .join(" • ")}
 
-            <h3>${pokemon.name.toUpperCase()}</h3>
+    </p>
 
-            <p>${pokemon.types
-                .map(type => type.type.name)
-                .join(", ")}</p>
+    <hr>
 
-        </div>
-    `;
+    <p><strong>Height:</strong> ${pokemon.height / 10} m</p>
 
-    pokemonList.innerHTML = "";
+    <p><strong>Weight:</strong> ${pokemon.weight / 10} kg</p>
 
-pokemonList.appendChild(card);
+</div>
+`;
 
 }
