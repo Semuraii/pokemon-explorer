@@ -22,7 +22,11 @@ pokemonDisplay.innerHTML = `
 
     <h2>${pokemon.name.toUpperCase()}</h2>
 
-    <p>#${pokemon.id}</p>
+    <p class="pokemon-number">
+
+#${pokemon.id.toString().padStart(3,"0")}
+
+</p>
 
     <p>
 

@@ -254,6 +254,16 @@ html, body {
 
 }
 
+.pokemon-number{
+
+    color:#777;
+
+    font-size:20px;
+
+    margin-top:-10px;
+
+}
+
 
 @media (max-width: 900px) {
 
