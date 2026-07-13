@@ -92,25 +92,33 @@ body {
 }
 
 .filter-btn {
-    padding: 12px 18px;
+
+    padding: 12px 20px;
 
     border: none;
 
-    border-radius: 10px;
+    border-radius: 999px;
 
     cursor: pointer;
 
-    background: #ffcb05;
+    background: var(--pokemon-yellow);
 
-    color: #2a75bb;
+    color: var(--pokemon-blue);
 
     font-weight: bold;
 
-    transition: 0.2s;
+    transition: all .2s ease;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,.15);
+
 }
 
 .filter-btn:hover {
-    background: #f4b400;
+
+    transform: translateY(-2px);
+
+    background:#f4b400;
+
 }
 
 .filter-btn.active {
@@ -174,23 +182,29 @@ body {
 
 .search-container button {
 
-    padding: 10px 18px;
+    padding:12px 20px;
 
-    border: none;
+    border:none;
 
-    border-radius: 8px;
+    border-radius:999px;
 
-    background: #2a75bb;
+    background:var(--pokemon-blue);
 
-    color: white;
+    color:white;
 
-    cursor: pointer;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
 
 }
 
 .search-container button:hover {
 
-    background: #1c4f82;
+    background:#1c4f82;
+
+    transform:translateY(-2px);
 
 }
 
