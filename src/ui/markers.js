@@ -25,6 +25,7 @@ export async function createMarker(map, places) {
     place.properties.formatted ||
     "Ukjent lokasjon";
       const categories = place.properties.categories || [];
+      console.log(categories);
 
       // Find a matching Pokémon habitat
 let habitatPokemon = null;
