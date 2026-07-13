@@ -1,3 +1,4 @@
+import { getPokemon } from "../api/pokemon.js";
 const caughtPokemon = new Set();
 const TOTAL_POKEMON = 151;
 
@@ -12,19 +13,40 @@ export function addPokemonToPokedex(pokemon) {
 
 savePokedex();
 
-const pokemonDisplay = document.getElementById("pokemon-display");
+    const collection = document.getElementById("pokemon-collection");
 
- const collection = document.getElementById("pokemon-collection");
-
-const sprite = document.createElement("div");
-
-sprite.className = "collection-pokemon";
-
-sprite.innerHTML = `
+    const sprite = document.createElement("div");
+    
+    sprite.className = "collection-pokemon";
+    
+    sprite.innerHTML = `
 <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
 `;
 
-sprite.addEventListener("click", () => {
+    sprite.addEventListener("click", () => {
+        updatePokemonDisplay(pokemon);
+    });
+
+    collection.appendChild(sprite);
+
+    updatePokemonDisplay(pokemon);
+
+    updateProgress();
+
+}
+
+function savePokedex() {
+
+    localStorage.setItem(
+        "caughtPokemon",
+        JSON.stringify([...caughtPokemon])
+    );
+
+}
+
+function updatePokemonDisplay(pokemon) {
+
+    const pokemonDisplay = document.getElementById("pokemon-display");
 
     pokemonDisplay.innerHTML = `
 <div class="pokemon-card">
@@ -51,55 +73,36 @@ sprite.addEventListener("click", () => {
 
 </div>
 `;
-});
+}
 
-collection.appendChild(sprite);
+function updateProgress() {
 
-    pokemonDisplay.innerHTML = `
-<div class="pokemon-card">
+    const caught = caughtPokemon.size;
 
-    <img src="${pokemon.sprites.other["official-artwork"].front_default}">
+    document.getElementById("caught-counter").textContent =
+        `Caught Pokémon: ${caught} / ${TOTAL_POKEMON}`;
 
-    <h2>${pokemon.name.toUpperCase()}</h2>
+    const percent = (caught / TOTAL_POKEMON) * 100;
 
-    <p class="pokemon-number">
-#${pokemon.id.toString().padStart(3,"0")}
-</p>
+    document.getElementById("progress-fill").style.width = `${percent}%`;
 
-    <p>
-        ${pokemon.types
-            .map(type => type.type.name)
-            .join(" • ")}
-    </p>
-
-    <hr>
-
-    <p><strong>Height:</strong> ${pokemon.height / 10} m</p>
-
-    <p><strong>Weight:</strong> ${pokemon.weight / 10} kg</p>
-
-</div>
-`;
-
-const caught = caughtPokemon.size;
-
-document.getElementById("caught-counter").textContent =
-    `Caught Pokémon: ${caught} / ${TOTAL_POKEMON}`;
-
-const percent = (caught / TOTAL_POKEMON) * 100;
-
-document.getElementById("progress-fill").style.width = `${percent}%`;
-
-document.getElementById("progress-percent").textContent =
-    `${Math.round(percent)}%`;
+    document.getElementById("progress-percent").textContent =
+        `${Math.round(percent)}%`;
 
 }
 
-function savePokedex() {
+export async function loadPokedex() {
 
-    localStorage.setItem(
-        "caughtPokemon",
-        JSON.stringify([...caughtPokemon])
-    );
+    const savedPokemon = JSON.parse(
+        localStorage.getItem("caughtPokemon")
+    ) || [];
+
+    for (const name of savedPokemon) {
+
+        const pokemon = await getPokemon(name);
+
+        addPokemonToPokedex(pokemon);
+
+    }
 
 }

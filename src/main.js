@@ -5,6 +5,7 @@ import { getPokemon } from "./api/pokemon.js";
 
 import { getPlaces, searchLocation } from "./api/geoapify.js";
 import { createMarker } from "./ui/markers.js";
+import { loadPokedex } from "./ui/pokedex.js";
 
 const map = L.map("map").setView([59.91, 10.75], 13);
 
@@ -99,5 +100,6 @@ filterButtons.forEach(button => {
 
 });
 
+await loadPokedex();
 loadPlaces();
 
