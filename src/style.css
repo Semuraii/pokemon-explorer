@@ -32,14 +32,18 @@ body {
 
 }
 
-#map{
-    flex: 3;
+#map {
 
-    width: 100%;
+    flex:1;
 
-    min-height: 600px;
+    min-height:650px;
 
-    border-radius: 12px;
+    border-radius:var(--radius);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
 }
 
 .controls {
