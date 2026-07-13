@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pokémon Explorer</title>
+    <script type="module" crossorigin src="/pokemon-explorer/assets/index-ik0pZHp0.js"></script>
+    <link rel="stylesheet" crossorigin href="/pokemon-explorer/assets/index-BHuaExeY.css">
+  </head>
+
+  <body>
+
+    <header class="header">
+        <h1>⚡ Pokémon Explorer ⚡</h1>
+        <p>Discover Pokémon around the world!</p>
+    </header>
+
+    
+
+    <!-- Kontrollpanel for søk og filtre -->
+    <div class="controls">
+      <!-- Søkefelt -->
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Søk etter en by eller sted...">
+        <button id="search-btn">Søk</button>
+      </div>
+
+      <!-- Filterknapper -->
+      <div class="filter-container">
+
+    <button class="filter-btn" data-category="catering.restaurant">
+        🍽 Restaurants
+    </button>
+
+    <button class="filter-btn" data-category="catering.cafe">
+        ☕ Cafés
+    </button>
+
+    <button class="filter-btn" data-category="leisure.park">
+        🌳 Parks
+    </button>
+
+    <button class="filter-btn" data-category="accommodation.hotel">
+        🏨 Hotels
+    </button>
+
+    <button class="filter-btn" data-category="commercial.supermarket">
+        ⚡ PokéStops
+    </button>
+
+</div>
+    </div>
+
+<div class="content">
+
+    <div id="map"></div>
+
+   <aside class="pokedex">
+
+    <h2 class="pokedex-title">
+    📖 Pokédex
+</h2>
+
+    <p id="caught-counter">Caught Pokémon: 0</p>
+
+    <hr>
+
+   <div id="pokemon-display">
+
+    <p>No Pokémon caught yet.</p>
+
+</div>
+
+</aside>
+
+</div>
+
+  </body>
+</html>
+
+
