@@ -1,7 +1,9 @@
 import L from "leaflet";
+import pokeball from "../assets/pokeball.png";
 import { pokemonHabitats } from "../data/pokemonHabitats.js";
 import { getPokemon } from "../api/pokemon.js";
 import { addPokemonToPokedex } from "./pokedex.js";
+
 
 let markerGroup = null;
 let caughtPokemon = 0;
@@ -86,16 +88,17 @@ const popupContent = `
 </div>
 `;
 
-     const pokemonIcon = L.icon({
-    iconUrl: pokemon.sprites.front_default,
-    iconSize: [60, 60],
-    iconAnchor: [30, 60],
-    popupAnchor: [0, -50]
+ const pokeballIcon = L.icon({
+    iconUrl: pokeball,
+    iconSize: [42, 42],
+    iconAnchor: [21, 42],
+    popupAnchor: [0, -35]
 });
 
 const marker = L.marker([lat, lon], {
-    icon: pokemonIcon
+    icon: pokeballIcon
 })
+
 .addTo(markerGroup)
 .bindPopup(popupContent);
 
