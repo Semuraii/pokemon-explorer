@@ -1,39 +1,93 @@
 export const pokemonHabitats = {
 
+    // 🌳 Parks
     "leisure.park": [
         "bulbasaur",
         "oddish",
         "bellsprout",
         "paras",
+        "caterpie",
+        "weedle",
         "exeggcute",
+        "scyther",
+        "pinsir",
         "tangela"
     ],
 
-    "catering.restaurant": [
-        "charmander",
-        "growlithe",
-        "vulpix",
-        "meowth"
-    ],
-
+    // ☕ Cafés
     "catering.cafe": [
         "eevee",
         "jigglypuff",
+        "meowth",
         "abra",
-        "pidgey"
+        "drowzee",
+        "snorlax"
     ],
 
+    // 🍽 Restaurants
+    "catering.restaurant": [
+        "growlithe",
+        "vulpix",
+        "ponyta",
+        "machop",
+        "mankey"
+    ],
+
+    // 🏨 Hotels
     "accommodation.hotel": [
-        "chansey",
-        "snorlax",
-        "eevee",
-        "meowth"
+        "pidgey",
+        "rattata",
+        "spearow",
+        "farfetchd",
+        "chansey"
     ],
 
+    // ⚡ Supermarkets / PokéStops
     "commercial.supermarket": [
         "pikachu",
         "magnemite",
-        "voltorb"
+        "voltorb",
+        "electabuzz"
+    ],
+
+    // 🌊 Water
+    "natural.water": [
+        "squirtle",
+        "psyduck",
+        "goldeen",
+        "staryu",
+        "magikarp",
+        "tentacool",
+        "horsea",
+        "krabby",
+        "seel",
+        "poliwag"
+    ],
+
+    // 🪨 Mountains / Rocks
+    "natural.rock": [
+        "geodude",
+        "graveler",
+        "onix",
+        "rhyhorn",
+        "cubone",
+        "sandshrew",
+        "diglett",
+        "omanyte",
+        "kabuto",
+        "aerodactyl"
+    ],
+
+    // 🌲 Forests
+    "natural.forest": [
+        "pikachu",
+        "caterpie",
+        "weedle",
+        "paras",
+        "bellsprout",
+        "oddish",
+        "scyther",
+        "pinsir"
     ]
 
 };

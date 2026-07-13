@@ -45,15 +45,17 @@ for (const category of categories) {
 
       console.log(categories);
 
-      let pokemonName = "pikachu";
+const locationKey = `${lat}${lon}`;
 
-if (habitatPokemon) {
+let hash = 0;
 
-    const randomIndex = Math.floor(Math.random() * habitatPokemon.length);
-
-    pokemonName = habitatPokemon[randomIndex];
-
+for (let i = 0; i < locationKey.length; i++) {
+    hash += locationKey.charCodeAt(i);
 }
+
+pokemonName = habitatPokemon[
+    hash % habitatPokemon.length
+];
 
 
 // Hent Pokémon fra PokeAPI
