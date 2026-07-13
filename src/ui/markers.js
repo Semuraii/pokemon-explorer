@@ -47,6 +47,19 @@ for (const category of categories) {
 
       console.log(categories);
 
+// Default Pokémon if no habitat matches
+const defaultPokemon = [
+    "pidgey",
+    "rattata",
+    "caterpie",
+    "weedle",
+    "zubat"
+];
+
+// Use habitat Pokémon if available, otherwise use defaults
+const availablePokemon = habitatPokemon || defaultPokemon;
+
+// Create a unique number for this location
 const locationKey = `${lat}${lon}`;
 
 let hash = 0;
@@ -55,9 +68,9 @@ for (let i = 0; i < locationKey.length; i++) {
     hash += locationKey.charCodeAt(i);
 }
 
-pokemonName = habitatPokemon[
-    hash % habitatPokemon.length
-];
+// Always get the same Pokémon for the same location
+const pokemonName =
+    availablePokemon[hash % availablePokemon.length];
 
 
 // Hent Pokémon fra PokeAPI
