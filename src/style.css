@@ -1,4 +1,4 @@
-:root{
+:root {
 
     --pokemon-red:#dc2626;
     --pokemon-blue:#2a75bb;
@@ -17,7 +17,7 @@
 }
 
 html,
-body{
+body {
 
     margin:0;
     padding:0;
@@ -178,34 +178,36 @@ body{
 }
 
 .content {
+
     display:flex;
-    gap:20px;
+
+    gap:25px;
+
+    padding:25px;
+
+    align-items:flex-start;
+
+}
+
+.pokedex {
+
+    width:360px;
+
+    flex-shrink:0;
+
+    background:var(--pokemon-red);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
 
     padding:20px;
 
-    align-items:stretch;
+    color:white;
+
 }
 
-.pokedex{
-
-    flex:1;
-
-    min-width:300px;
-
-    max-width:380px;
-
-    background:white;
-
-    border-left:5px solid #2a75bb;
-
-    padding:20px;
-
-    overflow-y:auto;
-
-    text-align:center;
-}
-
-.pokedex-title{
+.pokedex-title {
 
     text-align:center;
 
@@ -217,18 +219,18 @@ body{
 
 }
 
-.pokedex h2{
+.pokedex h2 {
     margin-top:0;
     color:#2a75bb;
 }
 
-#pokemon-display{
+#pokemon-display {
 
     text-align:center;
 
 }
 
-.pokemon-card{
+.pokemon-card {
 
     background:#f7f7f7;
 
@@ -242,7 +244,7 @@ body{
 
 }
 
-.pokemon-card img{
+.pokemon-card img {
 
     width:180px;
 
@@ -252,7 +254,7 @@ body{
 
 }
 
-.pokemon-card h2{
+.pokemon-card h2 {
 
     color:#2a75bb;
 
@@ -262,7 +264,7 @@ body{
 
 }
 
-.pokemon-card p{
+.pokemon-card p {
 
     margin:8px 0;
 
@@ -272,7 +274,7 @@ body{
 
 }
 
-.pokemon-card hr{
+.pokemon-card hr {
 
     margin:18px 0;
 
@@ -282,7 +284,7 @@ body{
 
 }
 
-.pokemon-number{
+.pokemon-number {
 
     color:#777;
 
