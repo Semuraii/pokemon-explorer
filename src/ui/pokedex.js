@@ -20,6 +20,36 @@ sprite.innerHTML = `
 <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
 `;
 
+// 🟢 Show this Pokémon when its sprite is clicked
+sprite.addEventListener("click", () => {
+
+    pokemonDisplay.innerHTML = `
+<div class="pokemon-card">
+
+    <img src="${pokemon.sprites.other["official-artwork"].front_default}">
+
+    <h2>${pokemon.name.toUpperCase()}</h2>
+
+    <p class="pokemon-number">
+        #${pokemon.id.toString().padStart(3, "0")}
+    </p>
+
+    <p>
+        ${pokemon.types
+            .map(type => type.type.name)
+            .join(" • ")}
+    </p>
+
+    <hr>
+
+    <p><strong>Height:</strong> ${pokemon.height / 10} m</p>
+
+    <p><strong>Weight:</strong> ${pokemon.weight / 10} kg</p>
+
+</div>
+`;
+});
+
 collection.appendChild(sprite);
 
     const pokemonDisplay = document.getElementById("pokemon-display");
