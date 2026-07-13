@@ -20,7 +20,6 @@ sprite.innerHTML = `
 <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
 `;
 
-// 🟢 Show this Pokémon when its sprite is clicked
 sprite.addEventListener("click", () => {
 
     pokemonDisplay.innerHTML = `

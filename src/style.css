@@ -513,7 +513,7 @@ body {
 
 }
 
-.progress-bar{
+.progress-bar {
 
     width:100%;
 
@@ -529,7 +529,7 @@ body {
 
 }
 
-#progress-fill{
+#progress-fill {
 
     width:0%;
 
@@ -541,7 +541,7 @@ body {
 
 }
 
-#progress-percent{
+#progress-percent {
 
     text-align:center;
 
@@ -553,7 +553,7 @@ body {
 
 }
 
-.collection-title{
+.collection-title {
 
     color:white;
 
@@ -563,7 +563,7 @@ body {
 
 }
 
-#pokemon-collection{
+#pokemon-collection {
 
     display:grid;
 
@@ -573,7 +573,7 @@ body {
 
 }
 
-.collection-pokemon{
+.collection-pokemon {
 
     background:white;
 
@@ -593,13 +593,17 @@ body {
 
 }
 
-.collection-pokemon:hover{
+.collection-pokemon:hover {
 
     transform:scale(1.08);
 
+    background:#ffcb05;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
+
 }
 
-.collection-pokemon img{
+.collection-pokemon img {
 
     width:50px;
 
