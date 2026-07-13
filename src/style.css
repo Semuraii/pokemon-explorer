@@ -150,15 +150,15 @@ body {
 
 .search-container input {
 
-    flex:1;
+    width:260px;
 
-    min-width:220px;
+    padding:12px;
 
-    padding:10px;
+    border-radius:var(--radius);
 
-    border-radius:8px;
+    border:2px solid var(--pokemon-blue);
 
-    border:2px solid #2a75bb;
+    font-size:16px;
 
 }
 
