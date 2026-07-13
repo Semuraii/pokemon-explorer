@@ -1,12 +1,10 @@
 import L from "leaflet";
-import pokeball from "../assets/pokeball.png";
 import { pokemonHabitats } from "../data/pokemonHabitats.js";
 import { getPokemon } from "../api/pokemon.js";
 import { addPokemonToPokedex } from "./pokedex.js";
 
 
 let markerGroup = null;
-let caughtPokemon = 0;
 
 export async function createMarker(map, places) {
     if (!markerGroup) {
@@ -20,8 +18,6 @@ export async function createMarker(map, places) {
     for (const place of places.features) {
         const lat = place.properties.lat;
         const lon = place.properties.lon;
-
-        console.log(JSON.stringify(place.properties, null, 2));
 
         const name =
     place.properties.name ||
@@ -44,8 +40,6 @@ for (const category of categories) {
     }
 
 }
-
-      console.log(categories);
 
 // Default Pokémon if no habitat matches
 const defaultPokemon = [
@@ -101,15 +95,15 @@ const popupContent = `
 </div>
 `;
 
- const pokeballIcon = L.icon({
-    iconUrl: pokeball,
-    iconSize: [42, 42],
-    iconAnchor: [21, 42],
-    popupAnchor: [0, -35]
+const pokemonIcon = L.icon({
+    iconUrl: pokemon.sprites.front_default,
+    iconSize: [55, 55],
+    iconAnchor: [27, 55],
+    popupAnchor: [0, -45]
 });
 
 const marker = L.marker([lat, lon], {
-    icon: pokeballIcon
+    icon: pokemonIcon
 })
 
 .addTo(markerGroup)
@@ -121,11 +115,6 @@ marker.on("popupopen", () => {
     if (marker.caught) return;
 
     marker.caught = true;
-
-    caughtPokemon++;
-
-    document.getElementById("caught-counter").textContent =
-        `Caught Pokémon: ${caughtPokemon}`;
 
     addPokemonToPokedex(pokemon);
 
