@@ -10,7 +10,11 @@ export function addPokemonToPokedex(pokemon) {
 
     caughtPokemon.add(pokemon.name);
 
-    const collection = document.getElementById("pokemon-collection");
+savePokedex();
+
+const pokemonDisplay = document.getElementById("pokemon-display");
+
+ const collection = document.getElementById("pokemon-collection");
 
 const sprite = document.createElement("div");
 
@@ -51,39 +55,7 @@ sprite.addEventListener("click", () => {
 
 collection.appendChild(sprite);
 
-    const pokemonDisplay = document.getElementById("pokemon-display");
-
-pokemonDisplay.innerHTML = `
-<div class="pokemon-card">
-
-    <img src="${pokemon.sprites.other["official-artwork"].front_default}">
-
-    <h2>${pokemon.name.toUpperCase()}</h2>
-
-    <p class="pokemon-number">
-
-#${pokemon.id.toString().padStart(3,"0")}
-
-</p>
-
-    <p>
-
-        ${pokemon.types
-            .map(type => type.type.name)
-            .join(" • ")}
-
-    </p>
-
-    <hr>
-
-    <p><strong>Height:</strong> ${pokemon.height / 10} m</p>
-
-    <p><strong>Weight:</strong> ${pokemon.weight / 10} kg</p>
-
-</div>
-`;
-
-pokemonDisplay.innerHTML = `
+    pokemonDisplay.innerHTML = `
 <div class="pokemon-card">
 
     <img src="${pokemon.sprites.other["official-artwork"].front_default}">
@@ -120,5 +92,14 @@ document.getElementById("progress-fill").style.width = `${percent}%`;
 
 document.getElementById("progress-percent").textContent =
     `${Math.round(percent)}%`;
+
+}
+
+function savePokedex() {
+
+    localStorage.setItem(
+        "caughtPokemon",
+        JSON.stringify([...caughtPokemon])
+    );
 
 }
