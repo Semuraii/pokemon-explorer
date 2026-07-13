@@ -8,86 +8,69 @@ export const pokemonHabitats = {
         "paras",
         "caterpie",
         "weedle",
-        "exeggcute",
-        "scyther",
-        "pinsir",
-        "tangela"
+        "pikachu"
+    ],
+
+    // 🌊 Water
+    "natural.water": [
+        "magikarp",
+        "psyduck",
+        "goldeen",
+        "poliwag",
+        "tentacool",
+        "krabby",
+        "shellder"
+    ],
+
+    // 🪨 Rocks & Mountains
+    "natural.rock": [
+        "geodude",
+        "onix",
+        "sandshrew",
+        "diglett",
+        "cubone",
+        "rhyhorn"
+    ],
+
+    // 🌲 Forest
+    "natural.forest": [
+        "caterpie",
+        "metapod",
+        "weedle",
+        "kakuna",
+        "paras",
+        "bellsprout",
+        "pikachu"
+    ],
+
+    // 🍽 Restaurants
+    "catering.restaurant": [
+        "snorlax",
+        "meowth",
+        "rattata",
+        "lickitung"
     ],
 
     // ☕ Cafés
     "catering.cafe": [
         "eevee",
         "jigglypuff",
-        "meowth",
-        "abra",
-        "drowzee",
-        "snorlax"
-    ],
-
-    // 🍽 Restaurants
-    "catering.restaurant": [
-        "growlithe",
-        "vulpix",
-        "ponyta",
-        "machop",
-        "mankey"
+        "clefairy",
+        "abra"
     ],
 
     // 🏨 Hotels
     "accommodation.hotel": [
-        "pidgey",
-        "rattata",
-        "spearow",
-        "farfetchd",
-        "chansey"
+        "eevee",
+        "meowth",
+        "porygon"
     ],
 
-    // ⚡ Supermarkets / PokéStops
+    // ⚡ Shops / PokéStops
     "commercial.supermarket": [
         "pikachu",
         "magnemite",
         "voltorb",
         "electabuzz"
-    ],
-
-    // 🌊 Water
-    "natural.water": [
-        "squirtle",
-        "psyduck",
-        "goldeen",
-        "staryu",
-        "magikarp",
-        "tentacool",
-        "horsea",
-        "krabby",
-        "seel",
-        "poliwag"
-    ],
-
-    // 🪨 Mountains / Rocks
-    "natural.rock": [
-        "geodude",
-        "graveler",
-        "onix",
-        "rhyhorn",
-        "cubone",
-        "sandshrew",
-        "diglett",
-        "omanyte",
-        "kabuto",
-        "aerodactyl"
-    ],
-
-    // 🌲 Forests
-    "natural.forest": [
-        "pikachu",
-        "caterpie",
-        "weedle",
-        "paras",
-        "bellsprout",
-        "oddish",
-        "scyther",
-        "pinsir"
     ]
-
 };
