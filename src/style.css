@@ -120,15 +120,19 @@ body {
 
 .header {
 
-    background: #ffcb05;
+    background: linear-gradient(
+        135deg,
+        var(--pokemon-yellow),
+        #ffd84d
+    );
 
-    color: #2a75bb;
+    color: var(--pokemon-blue);
 
     text-align: center;
 
-    padding: 20px;
+    padding: 30px 20px;
 
-    border-bottom: 6px solid #2a75bb;
+    box-shadow: var(--shadow);
 
 }
 
@@ -136,7 +140,11 @@ body {
 
     margin: 0;
 
-    font-size: 40px;
+    font-size: 48px;
+
+    letter-spacing: 2px;
+
+    font-weight: 800;
 
 }
 
@@ -145,6 +153,8 @@ body {
     margin-top: 10px;
 
     font-size: 18px;
+
+    opacity: .9;
 
 }
 
