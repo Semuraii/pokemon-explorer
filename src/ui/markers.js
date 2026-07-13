@@ -1,5 +1,5 @@
 import L from "leaflet";
-import { pokemonList } from "../data/pokemonList.js";
+import { pokemonHabitats } from "../data/pokemonHabitats.js";
 import { getPokemon } from "../api/pokemon.js";
 import { addPokemonToPokedex } from "./pokedex.js";
 
@@ -28,21 +28,33 @@ export async function createMarker(map, places) {
     "Ukjent lokasjon";
       const categories = place.properties.categories || [];
 
-      console.log(categories);
+      // Find a matching Pokémon habitat
+let habitatPokemon = null;
 
+for (const category of categories) {
 
-// Create a unique number based on the coordinates
-const locationKey = `${lat}${lon}`;
+    if (pokemonHabitats[category]) {
 
-// Convert the string into a number
-let hash = 0;
+        habitatPokemon = pokemonHabitats[category];
 
-for (let i = 0; i < locationKey.length; i++) {
-    hash += locationKey.charCodeAt(i);
+        break;
+
+    }
+
 }
 
-// Always pick the same Pokémon for this location
-const pokemonName = pokemonList[hash % pokemonList.length];
+      console.log(categories);
+
+      let pokemonName = "pikachu";
+
+if (habitatPokemon) {
+
+    const randomIndex = Math.floor(Math.random() * habitatPokemon.length);
+
+    pokemonName = habitatPokemon[randomIndex];
+
+}
+
 
 // Hent Pokémon fra PokeAPI
 const pokemon = await getPokemon(pokemonName);
