@@ -45,20 +45,40 @@ const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 
 if (searchBtn && searchInput) {
-  searchBtn.addEventListener("click", async () => {
-    const query = searchInput.value;
-    if (!query) return;
 
-    const searchData = await searchLocation(query);
-    
-    if (searchData.features && searchData.features.length > 0) {
-      const coordinates = searchData.features[0].geometry.coordinates;
-      // Merk: Geoapify returnerer [lon, lat], men Leaflet bruker [lat, lon]
-      map.setView([coordinates[1], coordinates[0]], 13);
-    } else {
-      alert("Fant ingen lokasjoner for: " + query);
-    }
-  });
+    // Search when clicking the button
+    searchBtn.addEventListener("click", async () => {
+
+        const query = searchInput.value;
+
+        if (!query) return;
+
+        const searchData = await searchLocation(query);
+
+        if (searchData.features && searchData.features.length > 0) {
+
+            const coordinates = searchData.features[0].geometry.coordinates;
+
+            map.setView([coordinates[1], coordinates[0]], 13);
+
+        } else {
+
+            alert("Fant ingen lokasjoner for: " + query);
+
+        }
+
+    });
+
+    searchInput.addEventListener("keydown", (event) => {
+
+        if (event.key === "Enter") {
+
+            searchBtn.click();
+
+        }
+
+    });
+
 }
 
 const filterButtons = document.querySelectorAll(".filter-btn");
