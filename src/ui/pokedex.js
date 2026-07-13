@@ -10,6 +10,18 @@ export function addPokemonToPokedex(pokemon) {
 
     caughtPokemon.add(pokemon.name);
 
+    const collection = document.getElementById("pokemon-collection");
+
+const sprite = document.createElement("div");
+
+sprite.className = "collection-pokemon";
+
+sprite.innerHTML = `
+<img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+`;
+
+collection.appendChild(sprite);
+
     const pokemonDisplay = document.getElementById("pokemon-display");
 
 pokemonDisplay.innerHTML = `
