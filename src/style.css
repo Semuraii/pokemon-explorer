@@ -1,3 +1,21 @@
+:root{
+
+    --pokemon-red:#dc2626;
+    --pokemon-blue:#2a75bb;
+    --pokemon-yellow:#ffcb05;
+
+    --background:#f3f4f6;
+
+    --card:#ffffff;
+
+    --text:#2b2b2b;
+
+    --shadow:0 10px 25px rgba(0,0,0,.12);
+
+    --radius:14px;
+
+}
+
 html, body {
   margin: 0;
   padding: 0;
