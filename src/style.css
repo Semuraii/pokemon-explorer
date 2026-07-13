@@ -230,6 +230,50 @@ body {
 
 }
 
+.pokedex-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:20px;
+
+}
+
+.light{
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+}
+
+.red{
+    background:#ef4444;
+}
+
+.yellow{
+    background:#facc15;
+}
+
+.green{
+    background:#22c55e;
+}
+
+.pokedex-title{
+
+    margin-left:auto;
+
+    color:white;
+
+    font-size:28px;
+
+}
+
 .pokedex-title {
 
     text-align:center;
