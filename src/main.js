@@ -16,6 +16,48 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 let currentCategory = "catering.restaurant";
+const filterCategories = {
+
+    "catering.restaurant": [
+        "catering.restaurant"
+    ],
+
+    "catering.cafe": [
+        "catering.cafe"
+    ],
+
+    "leisure.park": [
+        "leisure.park",
+        "natural.forest",
+        "natural.wood"
+    ],
+
+    "accommodation.hotel": [
+        "accommodation.hotel"
+    ],
+
+    "commercial.supermarket": [
+        "commercial.supermarket",
+        "commercial"
+    ],
+
+    "water": [
+        "natural.water",
+        "natural.beach",
+        "natural.coast",
+        "leisure.marina",
+        "tourism.attraction.fountain",
+        "waterway"
+    ],
+
+    "rock": [
+        "historic",
+        "tourism.attraction",
+        "tourism.viewpoint",
+        "natural.rock",
+        "natural.cliff"
+    ]
+};
 
 document
     .querySelector('[data-category="catering.restaurant"]')
@@ -27,6 +69,9 @@ console.log("Laster steder...");
 
   const center = map.getCenter();
   const data = await getPlaces(center.lat, center.lng, currentCategory);
+
+console.log("Current category:", currentCategory);
+console.log("Number of places:", data.features?.length);
 
 console.log(data);
 
@@ -92,7 +137,9 @@ filterButtons.forEach(button => {
     filterButtons.forEach(btn => btn.classList.remove("active"));
     button.classList.add("active");
 
-    currentCategory = button.dataset.category;
+    currentCategory =
+    filterCategories[button.dataset.category] ??
+    [button.dataset.category];
 
     await loadPlaces();
 

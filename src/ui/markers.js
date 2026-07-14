@@ -26,7 +26,15 @@ export async function createMarker(map, places) {
     place.properties.formatted ||
     "Ukjent lokasjon";
       const categories = place.properties.categories || [];
-      console.log(categories);
+
+      // Create a unique number for this location
+const locationKey = `${lat}${lon}`;
+
+let hash = 0;
+
+for (let i = 0; i < locationKey.length; i++) {
+    hash += locationKey.charCodeAt(i);
+}
 
 let biome = null;
 
@@ -36,15 +44,18 @@ for (const category of categories) {
 
         if (category.startsWith(key)) {
 
-            biome = biomeCategories[key];
+            const possibleBiomes = biomeCategories[key];
+
+            biome =
+                possibleBiomes[
+                    hash % possibleBiomes.length
+                ];
+
             break;
-
         }
-
     }
 
     if (biome) break;
-
 }
 
 // Default Pokémon if no habitat matches
@@ -57,20 +68,22 @@ const defaultPokemon = [
 ];
 
 const availablePokemon =
-    biome ? biomes[biome] : defaultPokemon;
-
-// Create a unique number for this location
-const locationKey = `${lat}${lon}`;
-
-let hash = 0;
-
-for (let i = 0; i < locationKey.length; i++) {
-    hash += locationKey.charCodeAt(i);
-}
+    biome && biomes[biome]
+        ? biomes[biome]
+        : defaultPokemon;
 
 // Always get the same Pokémon for the same location
 const pokemonName =
     availablePokemon[hash % availablePokemon.length];
+
+console.log(
+    "Location:",
+    name,
+    "| Biome:",
+    biome,
+    "| Pokémon:",
+    pokemonName
+);
 
 
 // Hent Pokémon fra PokeAPI
