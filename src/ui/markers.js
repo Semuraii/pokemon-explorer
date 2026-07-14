@@ -28,18 +28,22 @@ export async function createMarker(map, places) {
       const categories = place.properties.categories || [];
       console.log(categories);
 
-      // Find a matching Pokémon habitat
-let habitatPokemon = null;
+let biome = null;
 
 for (const category of categories) {
 
-    if (pokemonHabitats[category]) {
+    for (const key in biomeCategories) {
 
-        habitatPokemon = pokemonHabitats[category];
+        if (category.startsWith(key)) {
 
-        break;
+            biome = biomeCategories[key];
+            break;
+
+        }
 
     }
+
+    if (biome) break;
 
 }
 
@@ -52,8 +56,8 @@ const defaultPokemon = [
     "zubat"
 ];
 
-// Use habitat Pokémon if available, otherwise use defaults
-const availablePokemon = habitatPokemon || defaultPokemon;
+const availablePokemon =
+    biome ? biomes[biome] : defaultPokemon;
 
 // Create a unique number for this location
 const locationKey = `${lat}${lon}`;
