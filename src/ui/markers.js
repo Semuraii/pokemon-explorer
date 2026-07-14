@@ -1,5 +1,6 @@
 import L from "leaflet";
-import { pokemonHabitats } from "../data/pokemonHabitats.js";
+import { biomes } from "../data/biomes.js";
+import { biomeCategories } from "../data/biomeCategories.js";
 import { getPokemon } from "../api/pokemon.js";
 import { addPokemonToPokedex } from "./pokedex.js";
 
