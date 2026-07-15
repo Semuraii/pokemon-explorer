@@ -1,13 +1,13 @@
 const API_KEY = import.meta.env.VITE_GEOAPIFY_KEY;
 
-export async function getPlaces(lat, lon, category = "amenity") {
+export async function getPlaces(lat, lon) {
 
-    const categories = Array.isArray(category)
-        ? category.join(",")
-        : category;
+    const categories = [
+        "catering.restaurant"
+    ].join(",");
 
     const response = await fetch(
-        `https://api.geoapify.com/v2/places?categories=${categories}&filter=circle:${lon},${lat},1000&limit=20&apiKey=${API_KEY}`
+        `https://api.geoapify.com/v2/places?categories=${categories}&filter=circle:${lon},${lat},1000&limit=50&apiKey=${API_KEY}`
     );
 
     return await response.json();

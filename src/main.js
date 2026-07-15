@@ -15,68 +15,17 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-let currentCategory = "catering.restaurant";
-const filterCategories = {
-
-    "catering.restaurant": [
-        "catering.restaurant"
-    ],
-
-    "catering.cafe": [
-        "catering.cafe"
-    ],
-
-    "leisure.park": [
-        "leisure.park",
-        "natural.forest",
-        "natural.wood"
-    ],
-
-    "accommodation.hotel": [
-        "accommodation.hotel"
-    ],
-
-    "commercial.supermarket": [
-        "commercial.supermarket",
-        "commercial"
-    ],
-
-    "water": [
-        "natural.water",
-        "natural.beach",
-        "natural.coast",
-        "leisure.marina",
-        "tourism.attraction.fountain",
-        "waterway"
-    ],
-
-    "rock": [
-        "historic",
-        "tourism.attraction",
-        "tourism.viewpoint",
-        "natural.rock",
-        "natural.cliff"
-    ]
-};
-
-document
-    .querySelector('[data-category="catering.restaurant"]')
-    ?.classList.add("active");
-
 async function loadPlaces() {
 
 console.log("Laster steder...");
 
   const center = map.getCenter();
-  const data = await getPlaces(center.lat, center.lng, currentCategory);
+  const data = await getPlaces(
+    center.lat,
+    center.lng
+);
 
-console.log("Current category:", currentCategory);
-
-console.log("Geoapify response:");
-console.log(data);
-
-console.log("Features:");
-console.log(data.features);
+console.log("Loading nearby places...");
 
   createMarker(map, data);
 }
@@ -129,26 +78,6 @@ if (searchBtn && searchInput) {
     });
 
 }
-
-const filterButtons = document.querySelectorAll(".filter-btn");
-
-// Filterfunksjon
-filterButtons.forEach(button => {
-
-    button.addEventListener("click", async () => {
-
-    filterButtons.forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
-
-    currentCategory =
-    filterCategories[button.dataset.category] ??
-    [button.dataset.category];
-
-    await loadPlaces();
-
-});
-
-});
 
 await loadPokedex();
 loadPlaces();
