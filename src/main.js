@@ -71,9 +71,12 @@ console.log("Laster steder...");
   const data = await getPlaces(center.lat, center.lng, currentCategory);
 
 console.log("Current category:", currentCategory);
-console.log("Number of places:", data.features?.length);
 
+console.log("Geoapify response:");
 console.log(data);
+
+console.log("Features:");
+console.log(data.features);
 
   createMarker(map, data);
 }
