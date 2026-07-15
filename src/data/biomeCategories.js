@@ -5,6 +5,16 @@ export const biomeCategories = {
         "forest","forest","forest","fields","mountain"
     ],
 
+    "leisure.playground": [
+    "forest",
+    "fields"
+],
+
+"leisure.garden": [
+    "forest",
+    "forest"
+],
+
     "natural.forest": [
         "forest","forest","forest","mountain"
     ],
@@ -38,6 +48,19 @@ export const biomeCategories = {
         "water"
     ],
 
+    "leisure.water_park": [
+    "water"
+],
+
+"sport": [
+    "water"
+],
+
+"tourism.picnic": [
+    "water",
+    "forest"
+],
+
     // 🪨 Mountain / Rock
     "natural.rock": [
         "mountain"
@@ -59,9 +82,20 @@ export const biomeCategories = {
         "mountain"
     ],
 
-    "tourism.attraction": [
-        "mountain","urban"
-    ],
+   "tourism.attraction": [
+    "mountain",
+    "mountain",
+    "urban"
+],
+
+"entertainment": [
+    "mountain",
+    "urban"
+],
+
+"heritage": [
+    "mountain"
+],
 
     // 🌾 Fields
     "natural.grassland": [
