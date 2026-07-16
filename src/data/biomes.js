@@ -10,7 +10,8 @@ export const biomes = {
     "weedle",
     "kakuna",
     "beedrill",
-    "pikachu"
+    "pikachu",
+    "ivysaur"
 ],
 
     water: [
@@ -30,7 +31,8 @@ export const biomes = {
     "shellder",
     "staryu",
     "starmie",
-    "slowpoke"
+    "slowpoke",
+    "lapras"
 ],
 
     mountain: [
@@ -109,7 +111,8 @@ ghost: [
     "drowzee",
     "hypno",
     "abra",
-    "kadabra"
+    "kadabra",
+    "gengar"
 ],
 
 flying: [
@@ -136,6 +139,7 @@ industrial: [
     "voltorb",
     "electrode",
     "ditto",
-    "porygon"
+    "porygon",
+    "electabuzz"
 ],
 };
