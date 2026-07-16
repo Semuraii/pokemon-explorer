@@ -7,6 +7,15 @@ import { addPokemonToPokedex } from "./pokedex.js";
 
 let markerGroup = null;
 
+ // Default Pokémon if no habitat matches
+        const defaultPokemon = [
+            "pidgey",
+            "rattata",
+            "caterpie",
+            "weedle",
+            "zubat"
+        ];
+
 export async function createMarker(map, places) {
     if (!markerGroup) {
         markerGroup = L.layerGroup().addTo(map);
@@ -36,7 +45,7 @@ for (let i = 0; i < locationKey.length; i++) {
     hash += locationKey.charCodeAt(i);
 }
 
-let biome = null;
+const possibleBiomes = [];
 
 for (const category of categories) {
 
@@ -44,52 +53,38 @@ for (const category of categories) {
 
         if (category.startsWith(key)) {
 
-            const possibleBiomes = biomeCategories[key];
+            possibleBiomes.push(
+                ...biomeCategories[key]
+            );
 
-            biome =
-                possibleBiomes[
-                    hash % possibleBiomes.length
-                ];
-
-            break;
         }
+
     }
 
-    if (biome) break;
 }
 
-// Default Pokémon if no habitat matches
-const defaultPokemon = [
-    "pidgey",
-    "rattata",
-    "caterpie",
-    "weedle",
-    "zubat"
-];
+const biome =
+    possibleBiomes.length > 0
+        ? possibleBiomes[
+            hash % possibleBiomes.length
+        ]
+        : null;
+       
+        const availablePokemon =
+            biome && biomes[biome]
+                ? biomes[biome]
+                : defaultPokemon;
 
-const availablePokemon =
-    biome && biomes[biome]
-        ? biomes[biome]
-        : defaultPokemon;
+        // Always get the same Pokémon for the same location
+        const pokemonName =
+            availablePokemon[hash % availablePokemon.length];
 
-// Always get the same Pokémon for the same location
-const pokemonName =
-    availablePokemon[hash % availablePokemon.length];
+       // Hent Pokémon fra PokeAPI
+        const pokemon = await getPokemon(pokemonName);
 
-console.log(
-    "Location:",
-    name,
-    "| Biome:",
-    biome,
-    "| Pokémon:",
-    pokemonName
-);
+if (!pokemon) continue;
 
-
-// Hent Pokémon fra PokeAPI
-const pokemon = await getPokemon(pokemonName);
-
-const popupContent = `
+        const popupContent = `
 <div class="pokemon-popup">
 
 <img
@@ -114,30 +109,32 @@ const popupContent = `
 </div>
 `;
 
-const pokemonIcon = L.icon({
-    iconUrl: pokemon.sprites.front_default,
-    iconSize: [55, 55],
-    iconAnchor: [27, 55],
-    popupAnchor: [0, -45]
-});
+        const pokemonIcon = L.icon({
+            iconUrl:
+    pokemon.sprites.front_default ||
+    pokemon.sprites.other["official-artwork"].front_default,
+            iconSize: [55, 55],
+            iconAnchor: [27, 55],
+            popupAnchor: [0, -45]
+        });
 
-const marker = L.marker([lat, lon], {
-    icon: pokemonIcon
-})
+        const marker = L.marker([lat, lon], {
+            icon: pokemonIcon
+        })
 
-.addTo(markerGroup)
-.bindPopup(popupContent);
+        .addTo(markerGroup)
+        .bindPopup(popupContent);
 
-marker.on("popupopen", () => {
+        marker.on("popupopen", () => {
 
-    // Prevent catching the same Pokémon twice
-    if (marker.caught) return;
+            // Prevent catching the same Pokémon twice
+            if (marker.caught) return;
 
-    marker.caught = true;
+            marker.caught = true;
 
-    addPokemonToPokedex(pokemon);
+            addPokemonToPokedex(pokemon);
 
-    marker.setPopupContent(`
+            marker.setPopupContent(`
 <div class="pokemon-popup">
 
     <img
@@ -161,6 +158,6 @@ marker.on("popupopen", () => {
 
 </div>
 `);
-    });
-}
+        });
+    }
 }
