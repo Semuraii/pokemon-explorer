@@ -111,4 +111,31 @@ ghost: [
     "abra",
     "kadabra"
 ],
+
+flying: [
+    "pidgey",
+    "pidgeotto",
+    "pidgeot",
+    "spearow",
+    "fearow",
+    "doduo",
+    "dodrio",
+    "farfetchd",
+    "zubat",
+    "golbat",
+    "butterfree"
+],
+
+industrial: [
+    "magnemite",
+    "magneton",
+    "grimer",
+    "muk",
+    "koffing",
+    "weezing",
+    "voltorb",
+    "electrode",
+    "ditto",
+    "porygon"
+],
 };
