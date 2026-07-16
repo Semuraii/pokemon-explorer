@@ -1,130 +1,173 @@
 export const biomeCategories = {
 
-    // 🌳 Forest
-    "leisure.park": [
-        "forest","forest","forest","fields","mountain"
-    ],
-
-    "leisure.playground": [
+ // 🌳 Parks
+"leisure.park": [
     "forest",
-    "fields"
+    "forest",
+    "forest",
+    "fields",
+    "flying"
 ],
 
 "leisure.garden": [
     "forest",
+    "fields",
+    "flying"
+],
+
+"leisure.playground": [
+    "fields",
+    "flying",
+    "urban"
+],
+
+"natural.forest": [
+    "forest",
+    "forest",
+    "flying"
+],
+
+"natural.wood": [
+    "forest",
+    "forest",
+    "flying"
+],
+
+"natural.tree": [
     "forest"
 ],
 
-    "natural.forest": [
-        "forest","forest","forest","mountain"
-    ],
-
-    "natural.wood": [
-        "forest","forest","mountain"
-    ],
-
-    // 🌊 Water
-    "natural.water": [
-        "water","water","water","beach"
-    ],
-
-    "natural.beach": [
-        "water","beach"
-    ],
-
-    "natural.coast": [
-        "water","beach"
-    ],
-
-    "natural.wetland": [
-        "water","forest"
-    ],
-
-    "leisure.marina": [
-        "water"
-    ],
-
-    "tourism.attraction.fountain": [
-        "water"
-    ],
-
-    "leisure.water_park": [
-    "water"
-],
-
-"sport": [
-    "water"
-],
-
-"tourism.picnic": [
+"natural.water": [
     "water",
-    "forest"
+    "water",
+    "water"
 ],
 
-    // 🪨 Mountain / Rock
-    "natural.rock": [
-        "mountain"
-    ],
-
-    "natural.cliff": [
-        "mountain"
-    ],
-
-    "natural.hill": [
-        "mountain","fields"
-    ],
-
-    "historic": [
-        "mountain","urban"
-    ],
-
-    "tourism.viewpoint": [
-        "mountain"
-    ],
-
-   "tourism.attraction": [
-    "mountain",
-    "mountain",
-    "urban"
+"building.port": [
+    "water",
+    "industrial"
 ],
 
-"entertainment": [
-    "mountain",
-    "urban"
+"waterway": [
+    "water",
+    "water"
 ],
 
-"heritage": [
+"leisure.marina": [
+    "water",
+    "water",
+    "water",
+    "industrial"
+],
+
+"natural.beach": [
+    "water",
+    "beach",
+    "flying"
+],
+
+"natural.coast": [
+    "water",
+    "beach",
+    "flying"
+],
+
+"tourism.attraction.fountain": [
+    "water"
+],
+
+"man_made.pier": [
+    "water",
+    "industrial"
+],
+
+"man_made.breakwater": [
+    "water",
     "mountain"
 ],
 
-    // 🌾 Fields
-    "natural.grassland": [
-        "fields","forest"
-    ],
+"natural.rock": [
+    "mountain"
+],
 
-    "landuse.farmland": [
-        "fields"
-    ],
+"natural.cliff": [
+    "mountain"
+],
 
-    "natural.meadow": [
-        "fields"
-    ],
+"historic": [
+    "ghost",
+    "mountain"
+],
 
-    // 🏙 Urban
-    "commercial": [
-        "urban","urban","urban","residential"
-    ],
+"tourism.attraction": [
+    "mountain",
+    "urban"
+],
 
-    "catering": [
-        "urban","urban","residential"
-    ],
+"tourism.museum": [
+    "ghost",
+    "ghost",
+    "mountain"
+],
 
-    // 🏡 Residential
-    "building.residential": [
-        "residential","urban"
-    ],
+"historic.monument": [
+    "mountain",
+    "ghost"
+],
 
-    "accommodation.hotel": [
-        "residential","urban"
-    ]
+"historic.castle": [
+    "ghost",
+    "mountain"
+],
+
+"historic.memorial": [
+    "ghost"
+],
+
+"building.church": [
+    "ghost"
+],
+
+"building.cathedral": [
+    "ghost"
+],
+
+"service.cemetery": [
+    "ghost"
+],
+
+   "industrial": [
+    "industrial",
+    "urban"
+],
+
+"building.warehouse": [
+    "industrial"
+],
+
+"service": [
+    "industrial"
+],
+
+"railway": [
+    "industrial",
+    "urban"
+],
+
+"airport": [
+    "flying"
+],
+
+"aeroway": [
+    "flying"
+],
+
+"tower": [
+    "flying"
+],
+
+"tourism.viewpoint": [
+    "flying",
+    "mountain"
+],
 };
