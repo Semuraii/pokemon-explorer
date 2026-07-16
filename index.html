@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Pokémon Explorer</title>
-    <script type="module" crossorigin src="/pokemon-explorer/assets/index-ik0pZHp0.js"></script>
-    <link rel="stylesheet" crossorigin href="/pokemon-explorer/assets/index-BHuaExeY.css">
+    <script type="module" crossorigin src="/pokemon-explorer/assets/index-D1vcoTWu.js"></script>
+    <link rel="stylesheet" crossorigin href="/pokemon-explorer/assets/index-DSGQiWbz.css">
   </head>
 
   <body>
@@ -26,31 +26,6 @@
         <input type="text" id="search-input" placeholder="Søk etter en by eller sted...">
         <button id="search-btn">Søk</button>
       </div>
-
-      <!-- Filterknapper -->
-      <div class="filter-container">
-
-    <button class="filter-btn" data-category="catering.restaurant">
-        🍽 Restaurants
-    </button>
-
-    <button class="filter-btn" data-category="catering.cafe">
-        ☕ Cafés
-    </button>
-
-    <button class="filter-btn" data-category="leisure.park">
-        🌳 Parks
-    </button>
-
-    <button class="filter-btn" data-category="accommodation.hotel">
-        🏨 Hotels
-    </button>
-
-    <button class="filter-btn" data-category="commercial.supermarket">
-        ⚡ PokéStops
-    </button>
-
-</div>
     </div>
 
 <div class="content">
@@ -59,19 +34,45 @@
 
    <aside class="pokedex">
 
-    <h2 class="pokedex-title">
-    📖 Pokédex
-</h2>
+<div class="pokedex-header">
 
-    <p id="caught-counter">Caught Pokémon: 0</p>
+    <div class="light red"></div>
+
+    <div class="light yellow"></div>
+
+    <div class="light green"></div>
+
+    <h2 class="pokedex-title">
+        Pokédex
+    </h2>
+
+</div>
+
+    <p id="caught-counter">Caught Pokémon: 0 / 151</p>
+
+<div class="progress-bar">
+
+    <div id="progress-fill"></div>
+
+</div>
+
+<p id="progress-percent">0%</p>
 
     <hr>
 
-   <div id="pokemon-display">
+<div class="pokedex-screen">
 
-    <p>No Pokémon caught yet.</p>
+    <div id="pokemon-display">
+
+        <p>No Pokémon caught yet.</p>
+
+    </div>
 
 </div>
+
+<h3 class="collection-title">Collection</h3>
+
+<div id="pokemon-collection"></div>
 
 </aside>
 
