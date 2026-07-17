@@ -24,7 +24,7 @@ export function getPokemonForPlace(place) {
         hash += char.charCodeAt(0);
     }
 
-    const possibleBiomes = [];
+    const biomeScores = {};
 
     for (const category of categories) {
 
@@ -32,9 +32,12 @@ export function getPokemonForPlace(place) {
 
             if (category.startsWith(key)) {
 
-                possibleBiomes.push(
-                    ...biomeCategories[key]
-                );
+              for (const biome of biomeCategories[key]) {
+
+    biomeScores[biome] =
+        (biomeScores[biome] || 0) + 1;
+
+}
 
             }
 
@@ -42,12 +45,20 @@ export function getPokemonForPlace(place) {
 
     }
 
-    const biome =
-        possibleBiomes.length
-            ? possibleBiomes[
-                hash % possibleBiomes.length
-              ]
-            : null;
+    const biomeEntries = Object.entries(biomeScores);
+
+const biome =
+    biomeEntries.length > 0
+        ? biomeList.sort((a, b) => {
+
+            if (b[1] !== a[1]) {
+                return b[1] - a[1];
+            }
+
+            return a[0].localeCompare(b[0]);
+
+        })[0][0]
+        : null;
 
     const pokemonList =
         biome && biomes[biome]
