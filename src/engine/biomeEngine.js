@@ -60,15 +60,29 @@ const biome =
         })[0][0]
         : null;
 
-    const pokemonList =
-        biome && biomes[biome]
-            ? biomes[biome]
-            : defaultPokemon;
+    const pokemonPool = [];
 
-    const pokemon =
-        pokemonList[
-            hash % pokemonList.length
-        ];
+for (const [biomeName] of biomeList) {
+
+    if (biomes[biomeName]) {
+
+        pokemonPool.push(
+            ...biomes[biomeName]
+        );
+
+    }
+
+}
+
+    const pokemonList =
+    pokemonPool.length > 0
+        ? pokemonPool
+        : defaultPokemon;
+
+const pokemon =
+    pokemonList[
+        hash % pokemonList.length
+    ];
 
     return {
 
