@@ -1,20 +1,10 @@
 import L from "leaflet";
-import { biomes } from "../data/biomes.js";
-import { biomeCategories } from "../data/biomeCategories.js";
 import { getPokemon } from "../api/pokemon.js";
 import { addPokemonToPokedex } from "./pokedex.js";
+import { getPokemonForPlace } from "../engine/biomeEngine.js";
 
 
 let markerGroup = null;
-
- // Default Pokémon if no habitat matches
-        const defaultPokemon = [
-            "pidgey",
-            "rattata",
-            "caterpie",
-            "weedle",
-            "zubat"
-        ];
 
 export async function createMarker(map, places) {
     if (!markerGroup) {
@@ -36,48 +26,10 @@ export async function createMarker(map, places) {
     "Ukjent lokasjon";
       const categories = place.properties.categories || [];
 
-      // Create a unique number for this location
-const locationKey = `${lat}${lon}`;
-
-let hash = 0;
-
-for (let i = 0; i < locationKey.length; i++) {
-    hash += locationKey.charCodeAt(i);
-}
-
-const possibleBiomes = [];
-
-for (const category of categories) {
-
-    for (const key in biomeCategories) {
-
-        if (category.startsWith(key)) {
-
-            possibleBiomes.push(
-                ...biomeCategories[key]
-            );
-
-        }
-
-    }
-
-}
-
-const biome =
-    possibleBiomes.length > 0
-        ? possibleBiomes[
-            hash % possibleBiomes.length
-        ]
-        : null;
-       
-        const availablePokemon =
-            biome && biomes[biome]
-                ? biomes[biome]
-                : defaultPokemon;
-
-        // Always get the same Pokémon for the same location
-        const pokemonName =
-            availablePokemon[hash % availablePokemon.length];
+      const {
+    biome,
+    pokemon: pokemonName
+} = getPokemonForPlace(place);
 
        // Hent Pokémon fra PokeAPI
         const pokemon = await getPokemon(pokemonName);

@@ -1,35 +1,40 @@
 import { biomeCategories } from "../data/biomeCategories.js";
+import { biomes } from "../data/biomes.js";
 
-export function determineBiome(places) {
+const defaultPokemon = [
+    "pidgey",
+    "rattata",
+    "weedle",
+    "caterpie",
+    "zubat"
+];
 
-    const biomeScores = {};
+export function getPokemonForPlace(place) {
 
-    if (!places || !places.features) {
-        return "urban";
+    const categories = place.properties.categories || [];
+
+    const lat = place.properties.lat;
+    const lon = place.properties.lon;
+
+    const locationKey = `${lat}${lon}`;
+
+    let hash = 0;
+
+    for (const char of locationKey) {
+        hash += char.charCodeAt(0);
     }
 
-    for (const place of places.features) {
+    const possibleBiomes = [];
 
-        const categories =
-            place.properties.categories || [];
+    for (const category of categories) {
 
-        for (const category of categories) {
+        for (const key in biomeCategories) {
 
-            for (const key in biomeCategories) {
+            if (category.startsWith(key)) {
 
-                if (category.startsWith(key)) {
-
-                    const biomes =
-                        biomeCategories[key];
-
-                    biomes.forEach(biome => {
-
-                        biomeScores[biome] =
-                            (biomeScores[biome] || 0) + 1;
-
-                    });
-
-                }
+                possibleBiomes.push(
+                    ...biomeCategories[key]
+                );
 
             }
 
@@ -37,23 +42,29 @@ export function determineBiome(places) {
 
     }
 
-    let bestBiome = "urban";
-    let highestScore = 0;
+    const biome =
+        possibleBiomes.length
+            ? possibleBiomes[
+                hash % possibleBiomes.length
+              ]
+            : null;
 
-    for (const biome in biomeScores) {
+    const pokemonList =
+        biome && biomes[biome]
+            ? biomes[biome]
+            : defaultPokemon;
 
-        if (biomeScores[biome] > highestScore) {
+    const pokemon =
+        pokemonList[
+            hash % pokemonList.length
+        ];
 
-            highestScore = biomeScores[biome];
-            bestBiome = biome;
+    return {
 
-        }
+        biome,
 
-    }
+        pokemon
 
-    console.log("Biome Scores:", biomeScores);
-    console.log("Current Biome:", bestBiome);
-
-    return bestBiome;
+    };
 
 }
