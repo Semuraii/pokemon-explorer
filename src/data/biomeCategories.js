@@ -21,6 +21,16 @@ export const biomeCategories = {
     "urban"
 ],
 
+"leisure.spa": [
+    "water",
+    "urban"
+],
+
+"leisure.spa.sauna": [
+    "water",
+    "water"
+],
+
 "natural.forest": [
     "forest",
     "forest",
@@ -100,7 +110,6 @@ export const biomeCategories = {
 ],
 
 "tourism.attraction": [
-    "mountain",
     "urban"
 ],
 
@@ -136,7 +145,88 @@ export const biomeCategories = {
     "ghost"
 ],
 
-   "industrial": [
+// 🏙️ Commercial / Shops
+
+"commercial": [
+    "urban",
+    "urban"
+],
+
+"commercial.shopping_mall": [
+    "urban",
+    "urban",
+    "electric"
+],
+
+"commercial.supermarket": [
+    "urban"
+],
+
+"commercial.marketplace": [
+    "urban",
+    "fields"
+],
+
+"commercial.department_store": [
+    "urban"
+],
+
+"commercial.clothing": [
+    "urban"
+],
+
+"commercial.books": [
+    "psychic"
+],
+
+"commercial.electronics": [
+    "electric",
+    "urban"
+],
+
+"commercial.mobile_phone": [
+    "electric"
+],
+
+"commercial.computer": [
+    "electric"
+],
+
+// 🏨 Hotels
+
+"accommodation": [
+    "urban"
+],
+
+"accommodation.hotel": [
+    "urban",
+    "ghost"
+],
+
+// 🍽️ Food
+
+"catering": [
+    "urban"
+],
+
+"catering.restaurant": [
+    "urban"
+],
+
+"catering.fast_food": [
+    "urban"
+],
+
+"catering.cafe": [
+    "urban"
+],
+
+"catering.bar": [
+    "urban",
+    "dark"
+],
+
+"industrial": [
     "industrial",
     "urban"
 ],
@@ -166,7 +256,7 @@ export const biomeCategories = {
     "flying"
 ],
 
-"tourism.viewpoint": [
+"tourism.attraction.viewpoint": [
     "flying",
     "mountain"
 ],
