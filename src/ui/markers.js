@@ -26,6 +26,10 @@ export async function createMarker(map, places) {
     "Ukjent lokasjon";
       const categories = place.properties.categories || [];
 
+      console.log("------------------------------------------------");
+console.log(name);
+console.log(categories);
+
       const {
     biome,
     pokemon: pokemonName

@@ -1,27 +1,52 @@
 const API_KEY = import.meta.env.VITE_GEOAPIFY_KEY;
 
+async function fetchCategory(lat, lon, categories) {
+
+    const response = await fetch(
+        `https://api.geoapify.com/v2/places?categories=${categories}&filter=circle:${lon},${lat},1000&limit=15&apiKey=${API_KEY}`
+    );
+
+    if (!response.ok) {
+        throw new Error(`Failed to fetch ${categories}`);
+    }
+
+    return await response.json();
+
+}
+
 export async function getPlaces(lat, lon) {
 
     try {
 
-        const categories = [
-            "catering",
-            "commercial",
-            "accommodation",
-            "leisure",
-            "tourism",
-            "natural"
-        ].join(",");
+        const [
+    natural,
+    leisure,
+    accommodation,
+    commercial
+] = await Promise.all([
 
-        const response = await fetch(
-            `https://api.geoapify.com/v2/places?categories=${categories}&filter=circle:${lon},${lat},1000&limit=50&apiKey=${API_KEY}`
-        );
+    fetchCategory(lat, lon, "natural"),
 
-        if (!response.ok) {
-            throw new Error("Failed to fetch nearby places.");
-        }
+    fetchCategory(lat, lon, "leisure"),
 
-        return await response.json();
+    fetchCategory(lat, lon, "accommodation"),
+
+    fetchCategory(lat, lon, "commercial")
+
+]);
+
+return {
+
+    features: [
+
+        ...natural.features,
+        ...leisure.features,
+        ...accommodation.features,
+        ...commercial.features
+
+    ]
+
+};
 
     } catch (error) {
 
