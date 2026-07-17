@@ -37,8 +37,11 @@ export function getPokemonForPlace(place) {
 if (
     locationName.includes("park") ||
     locationName.includes("garden") ||
-    locationName.includes("forest")
-) {
+    locationName.includes("forest") ||
+    locationName.includes("botanical") ||
+    locationName.includes("nature") ||
+    locationName.includes("green")
+ ) {
 
     biomeScores.forest =
         (biomeScores.forest || 0) + 4;
@@ -54,7 +57,14 @@ if (
     locationName.includes("harbour") ||
     locationName.includes("dock") ||
     locationName.includes("marina") ||
-    locationName.includes("port")
+    locationName.includes("port") ||
+    locationName.includes("brygge") ||
+    locationName.includes("kai") ||
+    locationName.includes("pier") ||
+    locationName.includes("fjord") ||
+    locationName.includes("strand") ||
+    locationName.includes("river") ||
+    locationName.includes("lake")
 ) {
 
     biomeScores.water =
@@ -68,7 +78,12 @@ if (
     locationName.includes("church") ||
     locationName.includes("cathedral") ||
     locationName.includes("cemetery") ||
-    locationName.includes("memorial")
+    locationName.includes("memorial") ||
+    locationName.includes("fort") ||
+    locationName.includes("fortress") ||
+    locationName.includes("grave") ||
+    locationName.includes("chapel") ||
+    locationName.includes("ruin")
 ) {
 
     biomeScores.ghost =
@@ -78,7 +93,9 @@ if (
 
 if (
     locationName.includes("airport") ||
-    locationName.includes("tower")
+    locationName.includes("tower") ||
+    locationName.includes("bridge") ||
+    locationName.includes("lookout")
 ) {
 
     biomeScores.flying =
@@ -89,7 +106,10 @@ if (
 if (
     locationName.includes("station") ||
     locationName.includes("factory") ||
-    locationName.includes("warehouse")
+    locationName.includes("warehouse") ||
+    locationName.includes("terminal") ||
+    locationName.includes("depot") ||
+    locationName.includes("cargo")
 ) {
 
     biomeScores.industrial =
@@ -156,6 +176,12 @@ const pokemon =
     pokemonList[
         hash % pokemonList.length
     ];
+
+    console.log("--------------------------------");
+console.log("Location:", locationName);
+console.log("Biome scores:", biomeScores);
+console.log("Winning biome:", biome);
+console.log("Chosen Pokémon:", pokemon);
 
     return {
 
