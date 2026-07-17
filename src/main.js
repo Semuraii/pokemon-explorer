@@ -1,7 +1,6 @@
 import "leaflet/dist/leaflet.css";
 import "./style.css";
 import L from "leaflet";
-import { getPokemon } from "./api/pokemon.js";
 
 import { getPlaces, searchLocation } from "./api/geoapify.js";
 import { createMarker } from "./ui/markers.js";
@@ -9,7 +8,6 @@ import { loadPokedex } from "./ui/pokedex.js";
 
 const map = L.map("map").setView([59.91, 10.75], 13);
 
-// RETTET URL: Lagt til "tile." og "/" før klammeparentesene
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution: '&copy; OpenStreetMap contributors'
@@ -17,34 +15,23 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 async function loadPlaces() {
 
-console.log("Laster steder...");
-
   const center = map.getCenter();
   const data = await getPlaces(
     center.lat,
     center.lng
 );
 
-console.log("Loading nearby places...");
-
   createMarker(map, data);
 }
 
-let moveTimeout;
+map.on("dragend", loadPlaces);
 
-map.on("dragend", async () => {
-
-    await loadPlaces();
-
-});
-
-// Søkefunksjon
+// Search
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 
 if (searchBtn && searchInput) {
 
-    // Search when clicking the button
     searchBtn.addEventListener("click", async () => {
 
         const query = searchInput.value;

@@ -16,26 +16,26 @@ export async function createMarker(map, places) {
     if (!places || !places.features) return;
 
     for (const place of places.features) {
-        const lat = place.properties.lat;
-        const lon = place.properties.lon;
+       const { lat, lon } = place.properties;
 
-        const name =
+    const {
+    name: placeName,
+    address_line1,
+    formatted
+} = place.properties;
+
+const name =
     place.properties.name ||
     place.properties.address_line1 ||
     place.properties.formatted ||
     "Ukjent lokasjon";
-      const categories = place.properties.categories || [];
-
-      console.log("------------------------------------------------");
-console.log(name);
-console.log(categories);
+      
 
       const {
-    biome,
     pokemon: pokemonName
 } = getPokemonForPlace(place);
 
-       // Hent Pokémon fra PokeAPI
+       
         const pokemon = await getPokemon(pokemonName);
 
 if (!pokemon) continue;

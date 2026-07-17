@@ -2,15 +2,19 @@ const API_KEY = import.meta.env.VITE_GEOAPIFY_KEY;
 
 async function fetchCategory(lat, lon, categories) {
 
-    const response = await fetch(
-        `https://api.geoapify.com/v2/places?categories=${categories}&filter=circle:${lon},${lat},1000&limit=15&apiKey=${API_KEY}`
-    );
+   const response = await fetch(
+    `https://api.geoapify.com/v2/places?` +
+    `categories=${categories}` +
+    `&filter=circle:${lon},${lat},1000` +
+    `&limit=20` +
+    `&apiKey=${API_KEY}`
+);
 
     if (!response.ok) {
         throw new Error(`Failed to fetch ${categories}`);
     }
 
-    return await response.json();
+    return response.json();
 
 }
 
@@ -72,7 +76,7 @@ export async function searchLocation(query) {
             throw new Error("Failed to search for location.");
         }
 
-        return await response.json();
+        return response.json();
 
     } catch (error) {
 

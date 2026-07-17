@@ -32,7 +32,6 @@ export function getPokemonForPlace(place) {
 
     const biomeScores = {};
 
-    // ----- Name based biome boosts -----
 
 if (
     locationName.includes("park") ||
@@ -176,12 +175,6 @@ const pokemon =
     pokemonList[
         hash % pokemonList.length
     ];
-
-    console.log("--------------------------------");
-console.log("Location:", locationName);
-console.log("Biome scores:", biomeScores);
-console.log("Winning biome:", biome);
-console.log("Chosen Pokémon:", pokemon);
 
     return {
 
