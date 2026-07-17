@@ -49,7 +49,7 @@ export function getPokemonForPlace(place) {
 
 const biome =
     biomeEntries.length > 0
-        ? biomeList.sort((a, b) => {
+        ? biomeEntries.sort((a, b) => {
 
             if (b[1] !== a[1]) {
                 return b[1] - a[1];
@@ -62,7 +62,7 @@ const biome =
 
     const pokemonPool = [];
 
-for (const [biomeName] of biomeList) {
+for (const [biomeName] of biomeEntries) {
 
     if (biomes[biomeName]) {
 
