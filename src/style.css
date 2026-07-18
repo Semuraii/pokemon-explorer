@@ -256,6 +256,68 @@ body {
 
 }
 
+#overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:opacity .3s ease;
+
+    z-index:900;
+
+}
+
+#overlay.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+#close-pokedex{
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    width:36px;
+
+    height:36px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:var(--pokemon-red);
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+#close-pokedex:hover{
+
+    transform:scale(1.1);
+
+}
+
 .pokedex.open {
 
     right:0;
@@ -266,9 +328,9 @@ body {
 
     position:fixed;
 
-    top:20px;
+    top:110px;
 
-    right:20px;
+    right: 25px;
 
     z-index:1100;
 

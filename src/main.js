@@ -69,6 +69,29 @@ if (searchBtn && searchInput) {
 await loadPokedex();
 loadPlaces();
 
+const pokedex = document.getElementById("pokedex");
+const toggleBtn = document.getElementById("pokedex-toggle");
+const closeBtn = document.getElementById("close-pokedex");
+const overlay = document.getElementById("overlay");
+
+function openPokedex() {
+    pokedex.classList.add("open");
+    overlay.classList.add("show");
+    toggleBtn.style.display = "none";
+}
+
+function closePokedex() {
+    pokedex.classList.remove("open");
+    overlay.classList.remove("show");
+    toggleBtn.style.display = "block";
+}
+
+toggleBtn.addEventListener("click", openPokedex);
+
+closeBtn.addEventListener("click", closePokedex);
+
+overlay.addEventListener("click", closePokedex);
+
 const pokedex = document.querySelector(".pokedex");
 const toggle = document.getElementById("pokedex-toggle");
 
