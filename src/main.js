@@ -92,10 +92,5 @@ closeBtn.addEventListener("click", closePokedex);
 
 overlay.addEventListener("click", closePokedex);
 
-const pokedex = document.querySelector(".pokedex");
-const toggle = document.getElementById("pokedex-toggle");
 
-toggle.addEventListener("click", () => {
-    pokedex.classList.toggle("open");
-});
 
