@@ -1,7 +1,8 @@
-import { kantoPokemon } from "../data/kantoPokemon.js";
 import { getPokemon } from "../api/pokemon.js";
 const caughtPokemon = new Set();
-const TOTAL_POKEMON = 151;
+import { kantoPokemon } from "../data/kantoPokemon.js";
+
+const TOTAL_POKEMON = kantoPokemon.length;
 
 export function addPokemonToPokedex(pokemon) {
 

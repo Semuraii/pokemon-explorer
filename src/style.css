@@ -33,17 +33,12 @@ body {
 }
 
 #map {
-
-    flex:1;
-
-    min-height:650px;
+    width:100%;
+    height:calc(100vh - 210px);
 
     border-radius:var(--radius);
-
     overflow:hidden;
-
     box-shadow:var(--shadow);
-
 }
 
 .controls {

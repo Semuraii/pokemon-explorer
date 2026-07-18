@@ -13,11 +13,7 @@ export async function getPokemon(name) {
         return await response.json();
 
     } catch (error) {
-
-        console.error("Pokémon API error:", error);
-
         return null;
-
     }
 
 }
