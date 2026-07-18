@@ -69,6 +69,20 @@ function updatePokemonDisplay(pokemon) {
 
     <hr>
 
+    <p><strong>HP:</strong> ${
+    pokemon.stats.find(stat => stat.stat.name === "hp").base_stat
+}</p>
+
+<p><strong>Attack:</strong> ${
+    pokemon.stats.find(stat => stat.stat.name === "attack").base_stat
+}</p>
+
+<p><strong>Defense:</strong> ${
+    pokemon.stats.find(stat => stat.stat.name === "defense").base_stat
+}</p>
+
+<hr>
+
     <p><strong>Height:</strong> ${pokemon.height / 10} m</p>
 
     <p><strong>Weight:</strong> ${pokemon.weight / 10} kg</p>
