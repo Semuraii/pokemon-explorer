@@ -468,8 +468,15 @@ body {
     flex-direction: column;
 }
 
-.pokedex {
-    width: auto;
+.pokedex{
+
+    width:360px;
+
+    flex-shrink:0;
+
+    max-height:calc(100vh - 70px);
+
+    overflow-y:auto;
 }
 
 }
