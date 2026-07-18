@@ -78,12 +78,20 @@ function openPokedex() {
     pokedex.classList.add("open");
     overlay.classList.add("show");
     toggleBtn.style.display = "none";
+
+    setTimeout(() => {
+        map.invalidateSize();
+    }, 300);
 }
 
 function closePokedex() {
     pokedex.classList.remove("open");
     overlay.classList.remove("show");
     toggleBtn.style.display = "block";
+
+    setTimeout(() => {
+        map.invalidateSize();
+    }, 300);
 }
 
 toggleBtn.addEventListener("click", openPokedex);
