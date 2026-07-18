@@ -69,3 +69,10 @@ if (searchBtn && searchInput) {
 await loadPokedex();
 loadPlaces();
 
+const pokedex = document.querySelector(".pokedex");
+const toggle = document.getElementById("pokedex-toggle");
+
+toggle.addEventListener("click", () => {
+    pokedex.classList.toggle("open");
+});
+
