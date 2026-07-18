@@ -629,3 +629,7 @@ body {
     height:50px;
 
 }
+
+.map-container{
+    flex:1;
+}
