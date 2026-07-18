@@ -254,8 +254,6 @@ body {
 
     z-index:1000;
 
-    position:relative;
-
 }
 
 #overlay{
@@ -378,6 +376,8 @@ body {
 }
 
 .pokedex-header{
+
+    position: relative;
 
     display:flex;
 
