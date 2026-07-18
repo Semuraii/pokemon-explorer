@@ -286,13 +286,13 @@ body {
 
     position:absolute;
 
-    top:18px;
+    top: 15px;
 
-    right:18px;
+    right: 15px;
 
-    width:36px;
+    width: 34px;
 
-    height:36px;
+    height:34px;
 
     border:none;
 
@@ -302,7 +302,7 @@ body {
 
     color:var(--pokemon-red);
 
-    font-size:24px;
+    font-size:22px;
 
     font-weight:bold;
 
