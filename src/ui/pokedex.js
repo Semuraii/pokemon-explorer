@@ -46,11 +46,40 @@ function savePokedex() {
 
 }
 
+function createStatBar(stat) {
+
+    const percent = Math.min((stat / 150) * 100, 100);
+
+    return `
+        <div class="stat">
+            <span>${stat}</span>
+
+            <div class="stat-bar">
+                <div
+                    class="stat-fill"
+                    style="width:${percent}%"
+                ></div>
+            </div>
+        </div>
+    `;
+
+}
+
 function updatePokemonDisplay(pokemon) {
 
     const pokemonDisplay = document.getElementById("pokemon-display");
 
+    const hp =
+        pokemon.stats.find(stat => stat.stat.name === "hp").base_stat;
+
+    const attack =
+        pokemon.stats.find(stat => stat.stat.name === "attack").base_stat;
+
+    const defense =
+        pokemon.stats.find(stat => stat.stat.name === "defense").base_stat;
+
     pokemonDisplay.innerHTML = `
+
 <div class="pokemon-card">
 
     <img src="${pokemon.sprites.other["official-artwork"].front_default}">
@@ -67,19 +96,16 @@ function updatePokemonDisplay(pokemon) {
             .join(" • ")}
     </p>
 
-    <hr>
+<hr>
 
-    <p><strong>HP:</strong> ${
-    pokemon.stats.find(stat => stat.stat.name === "hp").base_stat
-}</p>
+<p><strong>HP</strong></p>
+${createStatBar(hp)}
 
-<p><strong>Attack:</strong> ${
-    pokemon.stats.find(stat => stat.stat.name === "attack").base_stat
-}</p>
+<p><strong>Attack</strong></p>
+${createStatBar(attack)}
 
-<p><strong>Defense:</strong> ${
-    pokemon.stats.find(stat => stat.stat.name === "defense").base_stat
-}</p>
+<p><strong>Defense</strong></p>
+${createStatBar(defense)}
 
 <hr>
 
