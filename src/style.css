@@ -39,12 +39,15 @@ body {
 }
 
 #map {
+
     width:100%;
-    height:calc(100vh - 210px);
+
+    height:calc(100vh - 180px);
 
     border-radius:var(--radius);
-    overflow:hidden;
+
     box-shadow:var(--shadow);
+
 }
 
 .controls {
@@ -217,13 +220,13 @@ body {
 
 .content {
 
-    display:flex;
+    position: relative;
 
-    gap: 30px;
+    width: 100%;
 
-    padding:25px;
+    padding: 25px;
 
-    align-items:flex-start;
+    box-sizing: border-box;
 
 }
 
@@ -235,7 +238,7 @@ body {
 
     right:-420px;
 
-    width:380px;
+    width: 380px;
 
     height:100vh;
 
@@ -432,12 +435,6 @@ body {
 
 @media (max-width: 900px) {
 
-    .content {
-
-        flex-direction: column;
-
-    }
-
     #map {
 
         min-height: 450px;
@@ -512,19 +509,13 @@ body {
 
     }
 
-    .content {
-    flex-direction: column;
-}
 
-.pokedex{
+.pokedex {
 
-    width:360px;
+    width: 100%;
 
-    flex-shrink:0;
+    right: -100%;
 
-    max-height:calc(100vh - 70px);
-
-    overflow-y:auto;
 }
 
 }
@@ -686,8 +677,4 @@ body {
 
     height:50px;
 
-}
-
-.map-container{
-    flex:1;
 }
