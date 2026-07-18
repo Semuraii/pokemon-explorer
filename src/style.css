@@ -16,6 +16,12 @@
 
 }
 
+html {
+
+    scroll-behavior:smooth;
+
+}
+
 html,
 body {
 
@@ -213,7 +219,7 @@ body {
 
     display:flex;
 
-    gap:25px;
+    gap: 30px;
 
     padding:25px;
 
@@ -615,7 +621,10 @@ body {
 
     cursor:pointer;
 
-    transition:.2s;
+    transition:
+    transform .2s,
+    background .2s,
+    box-shadow .2s;
 
 }
 
