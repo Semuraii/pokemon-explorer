@@ -229,19 +229,61 @@ body {
 
 .pokedex {
 
-    width:360px;
+    position:fixed;
 
-    flex-shrink:0;
+    top:0;
+
+    right:-420px;
+
+    width:380px;
+
+    height:100vh;
 
     background:var(--pokemon-red);
 
-    border-radius:var(--radius);
+    box-shadow:-6px 0 20px rgba(0,0,0,.25);
 
-    box-shadow:var(--shadow);
+    transition:right .3s ease;
 
     padding:20px;
 
+    overflow-y:auto;
+
+    z-index:1000;
+
+}
+
+.pokedex.open {
+
+    right:0;
+
+}
+
+#pokedex-toggle {
+
+    position:fixed;
+
+    top:20px;
+
+    right:20px;
+
+    z-index:1100;
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:var(--pokemon-blue);
+
     color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:var(--shadow);
 
 }
 
