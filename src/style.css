@@ -742,6 +742,12 @@ body {
 
 }
 
+.collection-pokemon{
+
+    position:relative;
+
+}
+
 .stat {
     margin-bottom: 12px;
 }
