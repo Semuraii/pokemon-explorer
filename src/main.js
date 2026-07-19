@@ -66,9 +66,6 @@ if (searchBtn && searchInput) {
 
 }
 
-await loadPokedex();
-loadPlaces();
-
 const pokedex = document.getElementById("pokedex");
 const toggleBtn = document.getElementById("pokedex-toggle");
 const closeBtn = document.getElementById("close-pokedex");
@@ -94,11 +91,20 @@ function closePokedex() {
     }, 300);
 }
 
-toggleBtn.addEventListener("click", openPokedex);
+if (toggleBtn) {
+    toggleBtn.addEventListener("click", openPokedex);
+}
 
-closeBtn.addEventListener("click", closePokedex);
+if (closeBtn) {
+    closeBtn.addEventListener("click", closePokedex);
+}
 
-overlay.addEventListener("click", closePokedex);
+if (overlay) {
+    overlay.addEventListener("click", closePokedex);
+}
+
+await loadPokedex();
+loadPlaces();
 
 
 
