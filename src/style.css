@@ -758,47 +758,17 @@ body {
 
 .collection-pokemon img {
 
-    width: 56px;
+    width:48px;
 
-    height:50px;
+    height:48px;
+
+    object-fit:contain;
 
 }
 
 .collection-pokemon{
 
     position:relative;
-
-}
-
-.collection-info {
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    text-align:center;
-
-    font-size:11px;
-
-    margin-top:5px;
-
-}
-
-
-.collection-info strong {
-
-    color:#2a75bb;
-
-    font-size:12px;
-
-}
-
-
-.collection-info span {
-
-    color:#555;
 
 }
 
