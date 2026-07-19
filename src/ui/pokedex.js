@@ -20,14 +20,6 @@ savePokedex();
     const sprite = document.createElement("div");
     
     sprite.className = "collection-pokemon";
-
-    const hp = pokemon.stats.find(stat => stat.stat.name === "hp").base_stat;
-
-    const attack =
-    pokemon.stats.find(stat => stat.stat.name === "attack").base_stat;
-
-    const defense =
-    pokemon.stats.find(stat => stat.stat.name === "defense").base_stat;
     
 sprite.innerHTML = `
 
