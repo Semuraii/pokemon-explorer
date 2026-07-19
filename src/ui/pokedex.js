@@ -41,6 +41,12 @@ savePokedex();
 });
     collection.appendChild(sprite);
 
+    document
+    .querySelectorAll(".collection-pokemon")
+    .forEach(card => card.classList.remove("selected"));
+
+sprite.classList.add("selected");
+
     updatePokemonDisplay(pokemon);
 
     updateProgress();
