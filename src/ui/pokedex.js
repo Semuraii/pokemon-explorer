@@ -163,7 +163,11 @@ export async function loadPokedex() {
 
         const pokemon = await getPokemon(name);
 
-        addPokemonToPokedex(pokemon);
+        if (pokemon) {
+
+            addPokemonToPokedex(pokemon);
+
+        }
 
     }
 

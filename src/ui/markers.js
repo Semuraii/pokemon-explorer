@@ -18,6 +18,8 @@ export async function createMarker(map, places) {
     for (const place of places.features) {
        const { lat, lon } = place.properties;
 
+       if (!lat || !lon) continue;
+
     const {
     name: placeName,
     address_line1,
