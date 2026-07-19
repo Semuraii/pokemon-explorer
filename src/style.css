@@ -375,6 +375,8 @@ body {
 
     align-items:center;
 
+    overflow-y: auto;
+
 }
 
 .pokedex-header{
