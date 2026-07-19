@@ -32,10 +32,12 @@ savePokedex();
     sprite.innerHTML = `
 <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
 
-div class="collection-tooltip">
+<div class="collection-tooltip">
 
 <strong>${pokemon.name.toUpperCase()}</strong>
-<p>${pokemon.types.map(type => type.type.name).join}(" • ")}</p>
+${pokemon.types
+    .map(type => type.type.name)
+    .join(" • ")}
 <hr>
 <p>❤️ HP: ${hp}</p>
 <p>⚔️ Attack: ${attack}</p>
