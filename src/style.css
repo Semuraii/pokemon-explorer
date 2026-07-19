@@ -782,6 +782,14 @@ body {
 
 }
 
+.collection-tooltip p{
+
+    margin:4px 0;
+
+    font-size:13px;
+
+}
+
 .stat {
     margin-bottom: 12px;
 }
