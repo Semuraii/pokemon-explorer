@@ -28,10 +28,17 @@ savePokedex();
     >
 `;
 
-    sprite.addEventListener("click", () => {
-        updatePokemonDisplay(pokemon);
-    });
+   sprite.addEventListener("click", () => {
 
+    document
+        .querySelectorAll(".collection-pokemon")
+        .forEach(card => card.classList.remove("selected"));
+
+    sprite.classList.add("selected");
+
+    updatePokemonDisplay(pokemon);
+
+});
     collection.appendChild(sprite);
 
     updatePokemonDisplay(pokemon);
