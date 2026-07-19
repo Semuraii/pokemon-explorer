@@ -741,3 +741,14 @@ body {
     height:50px;
 
 }
+
+.stat {
+    margin-bottom: 12px;
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
