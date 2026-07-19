@@ -790,6 +790,20 @@ body {
 
 }
 
+.collection-tooltip hr{
+
+    margin:6px 0;
+
+}
+
+.collection-pokemon:hover .collection-tooltip{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
 .stat {
     margin-bottom: 12px;
 }
