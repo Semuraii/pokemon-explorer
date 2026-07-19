@@ -46,13 +46,17 @@ function savePokedex() {
 
 }
 
-function createStatBar(stat) {
+function createStatBar(label, stat) {
 
     const percent = Math.min((stat / 150) * 100, 100);
 
     return `
         <div class="stat">
-            <span>${stat}</span>
+
+            <div class="stat-header">
+                <span>${label}</span>
+                <span>${stat}</span>
+            </div>
 
             <div class="stat-bar">
                 <div
@@ -60,6 +64,7 @@ function createStatBar(stat) {
                     style="width:${percent}%"
                 ></div>
             </div>
+
         </div>
     `;
 
@@ -98,14 +103,9 @@ function updatePokemonDisplay(pokemon) {
 
 <hr>
 
-<p><strong>HP</strong></p>
-${createStatBar(hp)}
-
-<p><strong>Attack</strong></p>
-${createStatBar(attack)}
-
-<p><strong>Defense</strong></p>
-${createStatBar(defense)}
+${createStatBar("HP", hp)}
+${createStatBar("Attack", attack)}
+${createStatBar("Defense", defense)}
 
 <hr>
 
