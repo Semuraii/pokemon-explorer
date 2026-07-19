@@ -20,9 +20,27 @@ savePokedex();
     const sprite = document.createElement("div");
     
     sprite.className = "collection-pokemon";
+
+    const hp = pokemon.stats.find(stat => stat.stat.name === "hp").base_stat;
+
+    const attack =
+    pokemon.stats.find(stat => stat.stat.name === "attack").base_stat;
+
+    const defense =
+    pokemon.stats.find(stat => stat.stat.name === "defense").base_stat;
     
     sprite.innerHTML = `
 <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+
+div class="collection-tooltip">
+
+<strong>${pokemon.name.toUpperCase()}</strong>
+<p>${pokemon.types.map(type => type.type.name).join}(" • ")}</p>
+<hr>
+<p>❤️ HP: ${hp}</p>
+<p>⚔️ Attack: ${attack}</p>
+<p>🛡️ Defence: ${defense}</p>
+</div>
 `;
 
     sprite.addEventListener("click", () => {
