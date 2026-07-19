@@ -69,6 +69,7 @@ if (searchBtn && searchInput) {
 const pokedex = document.getElementById("pokedex");
 const toggleBtn = document.getElementById("pokedex-toggle");
 const closeBtn = document.getElementById("close-pokedex");
+console.log("Close button:", closeBtn);
 const overlay = document.getElementById("overlay");
 
 function openPokedex() {
