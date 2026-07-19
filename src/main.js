@@ -97,7 +97,13 @@ if (toggleBtn) {
 }
 
 if (closeBtn) {
-    closeBtn.addEventListener("click", closePokedex);
+    closeBtn.addEventListener("click", () => {
+
+        console.log("X BUTTON CLICKED");
+
+        closePokedex();
+
+    });
 }
 
 if (overlay) {
@@ -121,7 +127,7 @@ catch(error) {
 
 try {
 
-    loadPlaces();
+    await loadPlaces();
 
 }
 catch(error) {
