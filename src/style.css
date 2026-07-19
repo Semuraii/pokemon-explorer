@@ -721,13 +721,15 @@ body {
 
 .collection-pokemon {
 
+    width:64px;
+
+    height:64px;
+
     background:white;
 
-    border-radius:10px;
+    border:2px solid var(--pokemon-blue);
 
-    padding: 8px;
-
-    min-height: 90px;
+    border-radius:12px;
 
     display:flex;
 
@@ -738,9 +740,9 @@ body {
     cursor:pointer;
 
     transition:
-    transform .2s,
-    background .2s,
-    box-shadow .2s;
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
 
 }
 
