@@ -103,8 +103,34 @@ if (overlay) {
     overlay.addEventListener("click", closePokedex);
 }
 
-await loadPokedex();
-loadPlaces();
+try {
+
+    await loadPokedex();
+
+}
+catch(error) {
+
+    console.error(
+        "Failed loading Pokédex:",
+        error
+    );
+
+}
+
+
+try {
+
+    loadPlaces();
+
+}
+catch(error) {
+
+    console.error(
+        "Failed loading map places:",
+        error
+    );
+
+}
 
 
 
