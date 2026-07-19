@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Pokémon Explorer</title>
-    <script type="module" crossorigin src="/pokemon-explorer/assets/index-D1vcoTWu.js"></script>
-    <link rel="stylesheet" crossorigin href="/pokemon-explorer/assets/index-DSGQiWbz.css">
+    <script type="module" crossorigin src="/pokemon-explorer/assets/index-BDXe05AC.js"></script>
+    <link rel="stylesheet" crossorigin href="/pokemon-explorer/assets/index-Dzufqauc.css">
   </head>
 
   <body>
@@ -30,9 +30,20 @@
 
 <div class="content">
 
-    <div id="map"></div>
+    <button id="pokedex-toggle">
+        📖
+    </button>
 
-   <aside class="pokedex">
+    <div class="map-container">
+    
+        <div id="map"></div>
+</div>
+
+   <aside class="pokedex" id="pokedex">
+
+    <button id="close-pokedex" aria-label="Close Pokédex">
+    &times;
+</button>
 
 <div class="pokedex-header">
 
@@ -48,17 +59,19 @@
 
 </div>
 
+<div class="progress-section">
+
     <p id="caught-counter">Caught Pokémon: 0 / 151</p>
 
-<div class="progress-bar">
+    <div class="progress-bar">
+        <div id="progress-fill"></div>
+    </div>
 
-    <div id="progress-fill"></div>
+    <p id="progress-percent">0%</p>
 
 </div>
 
-<p id="progress-percent">0%</p>
-
-    <hr>
+<hr>
 
 <div class="pokedex-screen">
 
@@ -77,6 +90,8 @@
 </aside>
 
 </div>
+
+<div id="overlay"></div>
 
   </body>
 </html>
