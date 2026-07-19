@@ -573,7 +573,7 @@ body {
 
 .pokedex {
 
-    width: 100%;
+    width: min(100%,380px);
 
     right: -100%;
 
