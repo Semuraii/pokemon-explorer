@@ -42,7 +42,9 @@ body {
 
     width:100%;
 
-    height:calc(100vh - 140px);
+    height:75vh;
+
+    min-height:600px;
 
     border-radius:var(--radius);
 
