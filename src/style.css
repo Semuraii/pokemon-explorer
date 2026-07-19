@@ -310,7 +310,7 @@ body {
 
     background:white;
 
-    color:var(--pokemon-yellow);
+    color:var(--pokemon-red);
 
     font-size:22px;
 
@@ -320,7 +320,7 @@ body {
 
     line-height: 1;
 
-    outline:3px solid red;
+    outline:3px solid var(--pokemon-yellow);
 
     z-index:2000;
 
