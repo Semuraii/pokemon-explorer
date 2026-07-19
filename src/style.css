@@ -748,6 +748,40 @@ body {
 
 }
 
+.collection-tooltip{
+
+    position:absolute;
+
+    bottom:110%;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:170px;
+
+    padding:10px;
+
+    background:white;
+
+    color:#333;
+
+    border-radius:10px;
+
+    box-shadow:0 6px 16px rgba(0,0,0,.25);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.2s;
+
+    z-index:2000;
+
+    pointer-events:none;
+
+}
+
 .stat {
     margin-bottom: 12px;
 }
