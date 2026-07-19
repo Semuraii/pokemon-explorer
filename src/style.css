@@ -772,7 +772,10 @@ body {
 
     visibility:hidden;
 
-    transition:.2s;
+    transition:
+    opacity .2s,
+    transform .2s,
+    visibility .2s;
 
     z-index:2000;
 
