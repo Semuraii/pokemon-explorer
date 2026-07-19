@@ -114,6 +114,13 @@ if (!pokemon) continue;
 
 </div>
 `);
+
+setTimeout(() => {
+
+    marker.closePopup();
+
+}, 3000);
+
         });
     }
 }
