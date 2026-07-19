@@ -29,20 +29,31 @@ savePokedex();
     const defense =
     pokemon.stats.find(stat => stat.stat.name === "defense").base_stat;
     
-    sprite.innerHTML = `
-<img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+sprite.innerHTML = `
 
-<div class="collection-tooltip">
+<img 
+    src="${pokemon.sprites.front_default}" 
+    alt="${pokemon.name}"
+>
 
-<strong>${pokemon.name.toUpperCase()}</strong>
+<div class="collection-info">
+
+<strong>
+${pokemon.name.toUpperCase()}
+</strong>
+
+<span>
 ${pokemon.types
     .map(type => type.type.name)
     .join(" • ")}
-<hr>
-<p>❤️ HP: ${hp}</p>
-<p>⚔️ Attack: ${attack}</p>
-<p>🛡️ Defence: ${defense}</p>
+</span>
+
+<span>
+#${pokemon.id.toString().padStart(3, "0")}
+</span>
+
 </div>
+
 `;
 
     sprite.addEventListener("click", () => {
