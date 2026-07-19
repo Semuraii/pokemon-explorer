@@ -21,31 +21,11 @@ savePokedex();
     
     sprite.className = "collection-pokemon";
     
-sprite.innerHTML = `
-
-<img 
-    src="${pokemon.sprites.front_default}" 
-    alt="${pokemon.name}"
->
-
-<div class="collection-info">
-
-<strong>
-${pokemon.name.toUpperCase()}
-</strong>
-
-<span>
-${pokemon.types
-    .map(type => type.type.name)
-    .join(" • ")}
-</span>
-
-<span>
-#${pokemon.id.toString().padStart(3, "0")}
-</span>
-
-</div>
-
+    sprite.innerHTML = `
+    <img
+        src="${pokemon.sprites.front_default}"
+        alt="${pokemon.name}"
+    >
 `;
 
     sprite.addEventListener("click", () => {
