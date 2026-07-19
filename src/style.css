@@ -766,9 +766,13 @@ body {
 
 }
 
-.collection-pokemon{
+.collection-pokemon.selected {
 
-    position:relative;
+    background:var(--pokemon-yellow);
+
+    border-color:var(--pokemon-yellow);
+
+    box-shadow:0 0 10px rgba(255,203,5,.6);
 
 }
 
