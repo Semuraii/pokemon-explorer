@@ -803,6 +803,10 @@ body {
 
     visibility:visible;
 
+    transform:
+    translateX(-50%)
+    translateY(-4px)
+
 }
 
 .stat {
