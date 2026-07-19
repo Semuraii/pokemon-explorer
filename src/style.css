@@ -834,4 +834,5 @@ body {
     height: 100%;
     background: var(--pokemon-yellow);
     border-radius: 999px;
+    transition:width .5s ease;
 }
