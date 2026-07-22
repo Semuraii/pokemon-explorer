@@ -7,11 +7,11 @@ import { getPokemonForPlace } from "../engine/biomeEngine.js";
 let markerGroup = null;
 
 export async function createMarker(map, places) {
-    if (!markerGroup) {
-        markerGroup = L.layerGroup().addTo(map);
-    }
+   if (!markerGroup) {
+    markerGroup = L.layerGroup().addTo(map);
+}
 
-    markerGroup.clearLayers();
+const newMarkerGroup = L.layerGroup();
 
     if (!places || !places.features) return;
 
@@ -80,7 +80,7 @@ if (!pokemon) continue;
             icon: pokemonIcon
         })
 
-        .addTo(markerGroup)
+        .addTo(newMarkerGroup)
         .bindPopup(popupContent);
 
         marker.on("popupopen", () => {
@@ -125,4 +125,10 @@ setTimeout(() => {
 
         });
     }
+
+     map.removeLayer(markerGroup);
+
+    markerGroup = newMarkerGroup;
+
+    markerGroup.addTo(map);
 }
