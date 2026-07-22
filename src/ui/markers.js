@@ -15,116 +15,119 @@ const newMarkerGroup = L.layerGroup();
 
     if (!places || !places.features) return;
 
-    for (const place of places.features) {
-       const { lat, lon } = place.properties;
+   const markerPromises = places.features.map(async (place) => {
 
-       if (!lat || !lon) continue;
+    const { lat, lon } = place.properties;
 
-    const {
-    name: placeName,
-    address_line1,
-    formatted
-} = place.properties;
+    if (!lat || !lon) return;
 
-const name =
-    place.properties.name ||
-    place.properties.address_line1 ||
-    place.properties.formatted ||
-    "Ukjent lokasjon";
-      
+    const name =
+        place.properties.name ||
+        place.properties.address_line1 ||
+        place.properties.formatted ||
+        "Unknown location";
 
-      const {
-    pokemon: pokemonName
-} = getPokemonForPlace(place);
+    const { pokemon: pokemonName } = getPokemonForPlace(place);
 
-       
-        const pokemon = await getPokemon(pokemonName);
+    const pokemon = await getPokemon(pokemonName);
 
-if (!pokemon) continue;
+    if (!pokemon) return;
 
-        const popupContent = `
+    const popupContent = `
 <div class="pokemon-popup">
 
-<img
-    src="${
-        pokemon.sprites.other["official-artwork"].front_default ||
-        pokemon.sprites.front_default
-    }"
->
+    <img
+        src="${
+            pokemon.sprites.other["official-artwork"].front_default ||
+            pokemon.sprites.front_default
+        }"
+    >
 
-<h3>${pokemon.name.toUpperCase()}</h3>
+    <h3>${pokemon.name.toUpperCase()}</h3>
 
-<p>
-📍 ${name}
-</p>
+    <p>📍 ${name}</p>
 
-<p>
-⚡ ${pokemon.types
-    .map(type => type.type.name)
-    .join(", ")}
-</p>
+    <p>
+        ⚡ ${pokemon.types
+            .map(type => type.type.name)
+            .join(", ")}
+    </p>
 
 </div>
 `;
 
-        const pokemonIcon = L.icon({
-            iconUrl:
-    pokemon.sprites.front_default ||
-    pokemon.sprites.other["official-artwork"].front_default,
-            iconSize: [55, 55],
-            iconAnchor: [27, 55],
-            popupAnchor: [0, -45]
-        });
+    const pokemonIcon = L.icon({
 
-        const marker = L.marker([lat, lon], {
-            icon: pokemonIcon
-        })
+        iconUrl:
+            pokemon.sprites.front_default ||
+            pokemon.sprites.other["official-artwork"].front_default,
 
-        .addTo(newMarkerGroup)
-        .bindPopup(popupContent);
+        iconSize:[55,55],
 
-        marker.on("popupopen", () => {
+        iconAnchor:[27,55],
 
-            // Prevent catching the same Pokémon twice
-            if (marker.caught) return;
+        popupAnchor:[0,-45]
 
-            marker.caught = true;
+    });
 
-            addPokemonToPokedex(pokemon);
+    const marker = L.marker([lat, lon], {
 
-            marker.setPopupContent(`
+        icon:pokemonIcon
+
+    })
+
+    .addTo(newMarkerGroup)
+
+    .bindPopup(popupContent);
+
+    marker.on("popupopen", () => {
+
+        if (marker.caught) return;
+
+        marker.caught = true;
+
+        addPokemonToPokedex(pokemon);
+
+        marker.setPopupContent(`
 <div class="pokemon-popup">
 
     <img
-    src="${
-        pokemon.sprites.other["official-artwork"].front_default ||
-        pokemon.sprites.front_default
-    }"
->
+        src="${
+            pokemon.sprites.other["official-artwork"].front_default ||
+            pokemon.sprites.front_default
+        }"
+    >
 
     <h3>${pokemon.name.toUpperCase()}</h3>
 
     <p><strong>Location:</strong></p>
+
     <p>${name}</p>
 
     <p><strong>Type:</strong></p>
+
     <p>${pokemon.types.map(type => type.type.name).join(", ")}</p>
 
     <p style="color:green;font-weight:bold;">
+
         Added to your Pokédex!
+
     </p>
 
 </div>
 `);
 
-setTimeout(() => {
+        setTimeout(() => {
 
-    marker.closePopup();
+            marker.closePopup();
 
-}, 3000);
+        },3000);
 
-        });
-    }
+    });
+
+});
+
+await Promise.all(markerPromises);
 
      map.removeLayer(markerGroup);
 
