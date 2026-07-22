@@ -41,13 +41,15 @@ body {
 
 #map {
 
-    width:100vw;
+    position: fixed;
 
-    height:100vh;
+    inset: 0;
 
-    border-radius:var(--radius);
+    width: 100%;
 
-    box-shadow:var(--shadow);
+    height: 100vh;
+
+    z-index: 1;
 
 }
 
