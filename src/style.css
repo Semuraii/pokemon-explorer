@@ -77,7 +77,43 @@ body {
 
 }
 
-.search-container button:hover {
+#search-input {
+
+    width:260px;
+
+    padding:12px;
+
+    border:2px solid var(--pokemon-blue);
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+#search-btn {
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:var(--pokemon-blue);
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+#search-btn:hover {
 
     background:#1c4f82;
 
