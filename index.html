@@ -6,90 +6,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Pokémon Explorer</title>
-    <script type="module" crossorigin src="/pokemon-explorer/assets/index-BDXe05AC.js"></script>
-    <link rel="stylesheet" crossorigin href="/pokemon-explorer/assets/index-Dzufqauc.css">
+    <script type="module" crossorigin src="/pokemon-explorer/assets/index-BK9Ev1OH.js"></script>
+    <link rel="stylesheet" crossorigin href="/pokemon-explorer/assets/index-Bg4RiGiE.css">
   </head>
 
   <body>
 
-    <header class="header">
-        <h1>⚡ Pokémon Explorer ⚡</h1>
-        <p>Discover Pokémon around the world!</p>
-    </header>
-
-    
-
-    <!-- Kontrollpanel for søk og filtre -->
-    <div class="controls">
-      <!-- Søkefelt -->
-      <div class="search-container">
-        <input type="text" id="search-input" placeholder="Søk etter en by eller sted...">
-        <button id="search-btn">Søk</button>
-      </div>
-    </div>
-
-<div class="content">
-
-    <button id="pokedex-toggle">
-        📖
-    </button>
-
-    <div class="map-container">
-    
-        <div id="map"></div>
-</div>
-
-   <aside class="pokedex" id="pokedex">
-
-    <button id="close-pokedex" aria-label="Close Pokédex">
-    &times;
+<button id="pokedex-toggle">
+    📖
 </button>
 
-<div class="pokedex-header">
+<div id="map"></div>
 
-    <div class="light red"></div>
+<div class="search-overlay">
 
-    <div class="light yellow"></div>
+    <input
+        type="text"
+        id="search-input"
+        placeholder="Søk etter en by eller sted..."
+    >
 
-    <div class="light green"></div>
-
-    <h2 class="pokedex-title">
-        Pokédex
-    </h2>
+    <button id="search-btn">
+        Søk
+    </button>
 
 </div>
 
-<div class="progress-section">
+<aside class="pokedex" id="pokedex">
 
-    <p id="caught-counter">Caught Pokémon: 0 / 151</p>
+    <button id="close-pokedex" aria-label="Close Pokédex">
+        &times;
+    </button>
 
-    <div class="progress-bar">
-        <div id="progress-fill"></div>
+    <div class="pokedex-header">
+
+        <div class="light red"></div>
+        <div class="light yellow"></div>
+        <div class="light green"></div>
+
+        <h2 class="pokedex-title">
+            Pokédex
+        </h2>
+
     </div>
 
-    <p id="progress-percent">0%</p>
+    <div class="progress-section">
 
-</div>
+        <p id="caught-counter">
+            Caught Pokémon: 0 / 151
+        </p>
 
-<hr>
+        <div class="progress-bar">
+            <div id="progress-fill"></div>
+        </div>
 
-<div class="pokedex-screen">
-
-    <div id="pokemon-display">
-
-        <p>No Pokémon caught yet.</p>
+        <p id="progress-percent">0%</p>
 
     </div>
 
-</div>
+    <hr>
 
-<h3 class="collection-title">Collection</h3>
+    <div class="pokedex-screen">
 
-<div id="pokemon-collection"></div>
+        <div id="pokemon-display">
+            <p>No Pokémon caught yet.</p>
+        </div>
+
+    </div>
+
+    <h3 class="collection-title">
+        Collection
+    </h3>
+
+    <div id="pokemon-collection"></div>
 
 </aside>
-
-</div>
 
 <div id="overlay"></div>
 
